@@ -1,0 +1,23 @@
+PODS:
+  - Google-Mobile-Ads-SDK (7.24.1)
+  - Realm (2.10.2):
+    - Realm/Headers (= 2.10.2)
+  - Realm/Headers (2.10.2)
+  - RealmSwift (2.10.2):
+    - Realm (= 2.10.2)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Google-Mobile-Ads-SDK
+  - RealmSwift
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Google-Mobile-Ads-SDK: ed8004a7265b424568dc84f3d2bbe3ea3fff958f
+  Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
+  RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 19429ff4f7b422bfcb6c7c58fa71649604338fae
+
+COCOAPODS: 1.2.0
