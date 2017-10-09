@@ -17,10 +17,10 @@ class MinsuLibrarys {
         }
         return UIColor.black
     }
-    func alert_confirm(title: String, message: String, handle: ()) -> UIAlertController {
-        let alert = UIAlertController()
+    func alert_confirm(title: String, message: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.view.tintColor = alertColor
-        alert.addAction(UIAlertAction(title: "Confirm", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .cancel, handler: nil))
         return alert
     }
     func alert_yes_no(title: String, message: String, handle: ()) -> UIAlertController {

@@ -20,18 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(topMenuColor)
         } else {
             UserDefaults.standard.set("black", forKey: "TopMenuColor")
-        }
-        
-        if let alertViewColor = UserDefaults.standard.string(forKey: "AlertColor") {
-            print(alertViewColor)
-        } else {
             UserDefaults.standard.set("black", forKey: "AlertColor")
-        }
-        
-        if let cardShowOption = UserDefaults.standard.string(forKey: "CardShowOption") {
-            print(cardShowOption)
-        } else {
             UserDefaults.standard.set("all", forKey: "CardShowOption")
+            UserDefaults.standard.set(0, forKey: "GroupNumber")
+            UserDefaults.standard.set(1000, forKey: "CardNumber")
         }
         return true
     }

@@ -12,6 +12,13 @@ import UIKit
 class GlobalInformation {
     private let screen = UIScreen.main.bounds
     
+    var top_menu_top_size: CGFloat {
+        if screen.width <= 320 && screen.height <= 560 {
+            return 35*0.83
+        } else {
+            return 35
+        }
+    }
     var top_menu_space: CGFloat {
         if screen.width <= 320 && screen.height <= 560 {
             return 20*0.83
@@ -38,5 +45,20 @@ class GlobalInformation {
             return UIColor.black
         }
         return UIColor.black
+    }
+    
+    var tf_height_size: CGFloat {
+        if screen.width <= 320 && screen.height <= 560 {
+            return 30*0.83
+        } else {
+            return 30
+        }
+    }
+    var tf_font_size: CGFloat {
+        if screen.width <= 320 && screen.height <= 560 {
+            return 14
+        } else {
+            return 17
+        }
     }
 }

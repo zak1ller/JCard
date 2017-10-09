@@ -4,3 +4,40 @@
 // Menu
 "NewCard" = "New Card";
 "Setting" = "Setting";
+"SelectGroup" = "Select Group";
+"CreateGroup" = "Create Group";
+
+
+// Text
+"Cancel" = "Cancel";
+"Confirm" = "Confirm";
+"Word" = "Word";
+"Meaning" = "Meaning";
+"Example" = "Example";
+"Group" = "Group";
+"NoGroup" = "No Group";
+"GroupName" = "Group Name";
+"Save" = "Save";
+"SelectGroupColor" = "Select Group Color";
+"Red" = "Red";
+"Green" = "Green";
+"Blue" = "Blue";
+"Black" = "Black";
+"Gray" = "Gray";
+"CardLevel" = "Card Level";
+
+// Alert
+"Message" = "Message";
+
+// Message
+"TooShortWord" = "This word is too short.";
+"TooLongWord" = "This word is too long.";
+"ThereAreNoGroupToChoose" = "There are no groups to choose from.";
+"TooShortMeaning" = "This meaning is too short.";
+"TooShortName" = "This name is too short.";
+"TooLongMeaning" = "This meaning is too long.";
+"TooLongExtra" = "This sample is too long.";
+"CanNotOverLengthGroup" = "A group can not over length 20 character.";
+"AlreadyName" = "This name is already.";
+"SelectGroupColor" = "Please select this group color.";
+"Registered" = "Registered.";

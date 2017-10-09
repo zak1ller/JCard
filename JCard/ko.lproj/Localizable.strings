@@ -4,3 +4,39 @@
 // Menu
 "NewCard" = "새 카드";
 "Setting" = "설정";
+"SelectGroup" = "그룹 선택";
+"CreateGroup" = "그룹 만들기";
+
+// Text
+"Cancel" = "취소";
+"Confirm" = "확인";
+"Word" = "단어";
+"Meaning" = "의미";
+"Example" = "예문";
+"Group" = "그룹";
+"GroupName" = "그룹 이름";
+"NoGroup" = "그룹 없음";
+"Save" = "저장";
+"SelectGroupColor" = "그룹 색상 선택";
+"Red" = "레드";
+"Green" = "그린";
+"Blue" = "블루";
+"Black" = "블랙";
+"Gray" = "그레이";
+"CardLevel" = "카드 레벨";
+
+// Alert
+"Message" = "메시지";
+
+// Message
+"TooShortWord" = "이 단어는 너무 짧습니다.";
+"TooLongWord" ="이 단어는 너무 깁니다.";
+"ThereAreNoGroupToChoose" = "선택할 수 있는 그룹이 없습니다.";
+"TooShortMeaning" = "이 의미는 너무 짧습니다.";
+"TooLongMeaning" = "이 의미는 너무 깁니다.";
+"TooLongExtra" = "이 예문은 너무 깁니다.";
+"TooShortName" = "이 이름은 너무 짧습니다.";
+"CanNotOverLengthGroup" = "그룹 이름은 20글자를 초과할 수 없습니다.";
+"AlreadyName" = "같은 이름이 존재합니다.";
+"SelectGroupColor" = "그룹 색상을 선택해주세요.";
+"Registered" = "등록되었습니다.";

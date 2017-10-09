@@ -31,6 +31,8 @@ class MainViewController: UIViewController {
     }
     @IBOutlet private var addCard: UIButton!
     @IBAction private func pressAddCard(sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CardAddViewController")
+        present(vc!, animated: true, completion: nil)
     }
     @IBOutlet private var set: UIButton!
     @IBAction private func pressSet(sender: UIButton) {
@@ -78,10 +80,10 @@ class MainViewController: UIViewController {
             self.card.backgroundColor = UIColor.white
             SokDesigner().cornerRadius(obj: self.card, value: 12)
             
-            let top = NSLayoutConstraint(item: self.card, attribute: .top, relatedBy: .equal, toItem: self.cardBackground, attribute: .top, multiplier: 1, constant: 1.75)
-            let leading = NSLayoutConstraint(item: self.card, attribute: .leading, relatedBy: .equal, toItem: self.cardBackground, attribute: .leading, multiplier: 1, constant: 1.75)
-            let trailing = NSLayoutConstraint(item: self.card, attribute: .trailing, relatedBy: .equal, toItem: self.cardBackground, attribute: .trailing, multiplier: 1, constant: -1.75)
-            let bottom = NSLayoutConstraint(item: self.card, attribute: .bottom, relatedBy: .equal, toItem: self.cardBackground, attribute: .bottom, multiplier: 1, constant: -1.75)
+            let top = NSLayoutConstraint(item: self.card, attribute: .top, relatedBy: .equal, toItem: self.cardBackground, attribute: .top, multiplier: 1, constant: 2.5)
+            let leading = NSLayoutConstraint(item: self.card, attribute: .leading, relatedBy: .equal, toItem: self.cardBackground, attribute: .leading, multiplier: 1, constant: 2.5)
+            let trailing = NSLayoutConstraint(item: self.card, attribute: .trailing, relatedBy: .equal, toItem: self.cardBackground, attribute: .trailing, multiplier: 1, constant: -2.5)
+            let bottom = NSLayoutConstraint(item: self.card, attribute: .bottom, relatedBy: .equal, toItem: self.cardBackground, attribute: .bottom, multiplier: 1, constant: -2.5)
             NSLayoutConstraint.activate([top,leading,trailing,bottom])
         }
         cardConst()
@@ -111,19 +113,16 @@ class MainViewController: UIViewController {
             () in
             self.addCard.translatesAutoresizingMaskIntoConstraints = false
             self.addCard.setTitle(NSLocalizedString("", comment: ""), for: .normal)
-            self.addCard.setImage(UIImage(named: "newbutton.png"), for: .normal)
+            self.addCard.setImage(UIImage(named: "new.png"), for: .normal)
+            self.addCard.tintColor = UIColor.black
             
-            var topSize: CGFloat {
-                if UIScreen.main.bounds.width <= 320 && UIScreen.main.bounds.height <= 560 {
-                    return 35*0.83
-                } else {
-                    return 35
-                }
-            }
-            let top = NSLayoutConstraint(item: self.addCard, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: topSize)
+            let top = NSLayoutConstraint(item: self.addCard, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: GlobalInformation().top_menu_top_size)
             let centerX = NSLayoutConstraint(item: self.addCard, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
-            NSLayoutConstraint.activate([top,centerX])
+            let width = NSLayoutConstraint(item: self.addCard, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let height = NSLayoutConstraint(item: self.addCard, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            NSLayoutConstraint.activate([top,centerX,width,height])
         }
+        addCardConst()
         
         let setConst = {
             () in

@@ -4,3 +4,39 @@
 // Menu
 "NewCard" = "新卡";
 "Setting" = "设置";
+"SelectGroup" = "选择组";
+"CreateGroup" = "创建组";
+
+// Text
+"Cancel" = "取消";
+"Confirm" = "确认";
+"Word" = "字";
+"Meaning" = "含义";
+"Example" = "示例";
+"Group" = "组";
+"GroupName" = "组名";
+"NoGroup" = "没有组";
+"Save" = "保存";
+"SelectGroupColor" = "选择组颜色";
+"Red" = "红";
+"Green" = "绿色";
+"Blue" = "蓝色";
+"Black" = "黑色";
+"Gray" = "灰色";
+"CardLevel" = "卡级别";
+
+// Alert
+"Message" = "信息";
+
+// Message
+"TooShortWord" = "这个字太短了。";
+"TooLongWord" ="这个字太长了";
+"ThereAreNoGroupToChoose" = "没有组合可供选择。";
+"TooShortMeaning" = "这个意思太短了。";
+"TooShortName" = "这个名字太短。";
+"TooLongMeaning" = "这个意思太长了";
+"TooLongExtra" = "这个例子太久了。";
+"CanNotOverLengthGroup" = "一个组不能超过20个字符。";
+"AlreadyName" = "这个名字已经是";
+"SelectGroupColor" = "请选择此组颜色。";
+"Registered" = "它已被注册。";

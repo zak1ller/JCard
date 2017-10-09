@@ -4,3 +4,39 @@
 // Menu
 "NewCard" = "新しいカード";
 "Setting" = "設定";
+"SelectGroup" = "グループを選択";
+"CreateGroup" = "グループを作る";
+
+// Text
+"Cancel" = "キャンセル";
+"Confirm" = "確認";
+"Word" = "単語";
+"Meaning" = "意味";
+"Example" = "例文";
+"Group" = "グループ";
+"NoGroup" = "グループなし";
+"GroupName" = "グループ名";
+"Save" = "セーブ";
+"SelectGroupColor" = "グループカラーを選択";
+"Red" = "赤";
+"Green" = "緑";
+"Blue" = "青";
+"Black" = "ブラック";
+"Gray" = "グレー";
+"CardLevel" = "カードレベル";
+
+// Alert
+"Message" = "メッセージ";
+
+// Message
+"TooShortWord" = "この言葉は短すぎます。";
+"TooLongWord" ="この言葉は長すぎます。";
+"ThereAreNoGroupToChoose" = "選択するグループはありません。";
+"TooShortMeaning" = "この意味は短すぎます。";
+"TooShortName" = "この名前は短すぎます。";
+"TooLongMeaning" = "この意味は長すぎます。";
+"TooLongExtra" = "この例は、長すぎます。";
+"CanNotOverLengthGroup" = "グループは20文字以上の長さにすることはできません。";
+"AlreadyName" = "この名前は既にあります。";
+"SelectGroupColor" = "このグループの色を選択してください。";
+"Registered" = "登録された。";
