@@ -56,9 +56,9 @@ class GlobalInformation {
     }
     var tf_font_size: CGFloat {
         if screen.width <= 320 && screen.height <= 560 {
-            return 14
+            return 12
         } else {
-            return 17
+            return 15
         }
     }
 }

@@ -23,6 +23,9 @@ class MainViewController: UIViewController {
             cardDatas = try! Realm().objects(cards.self).filter("isMemorized = false")
         }
     }
+    override func viewDidAppear(_ animated: Bool) {
+        print(try! Realm().objects(cards.self))
+    }
     
     @IBOutlet private var statusLabel: UILabel!
     @IBOutlet private var cardBackground: UIView!
