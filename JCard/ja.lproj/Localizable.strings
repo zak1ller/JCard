@@ -28,6 +28,10 @@
 // Alert
 "Message" = "メッセージ";
 
+// Card
+"PressCard" = "カードを押して、カードを反転させてください！";
+"PressCard2" = "次のカードに移動するには、カードを押してください！";
+
 // Message
 "TooShortWord" = "この言葉は短すぎます。";
 "TooLongWord" ="この言葉は長すぎます。";

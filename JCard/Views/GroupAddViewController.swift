@@ -48,27 +48,27 @@ class GroupAddViewController: UIViewController {
         alert.view.tintColor = UIColor.black
         alert.addAction(UIAlertAction(title: NSLocalizedString("Red", comment: ""), style: .default, handler: {
             (_) in
-            self.groupColor.backgroundColor = UIColor.red
+            self.groupColor.backgroundColor = GlobalInformation().card_color_red
             self.gColor = UIColor.red
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Green", comment: ""), style: .default, handler: {
             (_) in
-            self.groupColor.backgroundColor = UIColor.green
+            self.groupColor.backgroundColor = GlobalInformation().card_color_green
             self.gColor = UIColor.green
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Blue", comment: ""), style: .default, handler: {
             (_) in
-            self.groupColor.backgroundColor = UIColor.blue
+            self.groupColor.backgroundColor = GlobalInformation().card_color_blue
             self.gColor = UIColor.blue
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Black", comment: ""), style: .default, handler: {
             (_) in
-            self.groupColor.backgroundColor = UIColor.black
+            self.groupColor.backgroundColor = GlobalInformation().card_color_black
             self.gColor = UIColor.black
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Gray", comment: ""), style: .default, handler: {
             (_) in
-            self.groupColor.backgroundColor = UIColor.gray
+            self.groupColor.backgroundColor = UIColor.lightGray
             self.gColor = UIColor.gray
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
@@ -125,7 +125,7 @@ class GroupAddViewController: UIViewController {
             let width = NSLayoutConstraint(item: self.back, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
             let height = NSLayoutConstraint(item: self.back, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
             let top = NSLayoutConstraint(item: self.back, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: GlobalInformation().top_menu_top_size)
-            let leading = NSLayoutConstraint(item: self.back, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: GlobalInformation().top_menu_space)
+            let leading = NSLayoutConstraint(item: self.back, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 5)
             NSLayoutConstraint.activate([width,height,top,leading])
         }
         backConst()
@@ -139,8 +139,8 @@ class GroupAddViewController: UIViewController {
             self.groupField.becomeFirstResponder()
             self.groupField.placeholder = NSLocalizedString("GroupName", comment: "")
             
-            let leading = NSLayoutConstraint(item: self.groupField, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: GlobalInformation().top_menu_space)
-            let trailing = NSLayoutConstraint(item: self.groupField, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -GlobalInformation().top_menu_space)
+            let leading = NSLayoutConstraint(item: self.groupField, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 5)
+            let trailing = NSLayoutConstraint(item: self.groupField, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -5)
             let height = NSLayoutConstraint(item: self.groupField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().tf_height_size)
             let top = NSLayoutConstraint(item: self.groupField, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 100)
             NSLayoutConstraint.activate([leading,trailing,height,top])
@@ -153,10 +153,11 @@ class GroupAddViewController: UIViewController {
             self.groupColor.setTitle(NSLocalizedString("SelectGroupColor", comment: ""), for: .normal)
             self.groupColor.setTitleColor(UIColor.white, for: .normal)
             self.groupColor.backgroundColor = UIColor.darkGray
+            SokDesigner().cornerRadius(obj: self.groupColor, value: 8)
             
             let height = NSLayoutConstraint(item: self.groupColor, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().tf_height_size)
-            let leading = NSLayoutConstraint(item: self.groupColor, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: GlobalInformation().top_menu_space)
-            let trailing = NSLayoutConstraint(item: self.groupColor, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -GlobalInformation().top_menu_space)
+            let leading = NSLayoutConstraint(item: self.groupColor, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 5)
+            let trailing = NSLayoutConstraint(item: self.groupColor, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -5)
             let top = NSLayoutConstraint(item: self.groupColor, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 150)
             NSLayoutConstraint.activate([leading,trailing,height,top])
         }
@@ -168,10 +169,11 @@ class GroupAddViewController: UIViewController {
             self.save.setTitle(NSLocalizedString("Save", comment: ""), for: .normal)
             self.save.setTitleColor(UIColor.white, for: .normal)
             self.save.backgroundColor = UIColor.darkGray
+            SokDesigner().cornerRadius(obj: self.save, value: 8)
             
             let height = NSLayoutConstraint(item: self.save, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().tf_height_size)
-            let leading = NSLayoutConstraint(item: self.save, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: GlobalInformation().top_menu_space)
-            let trailing = NSLayoutConstraint(item: self.save, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -GlobalInformation().top_menu_space)
+            let leading = NSLayoutConstraint(item: self.save, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 5)
+            let trailing = NSLayoutConstraint(item: self.save, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -5)
             let top = NSLayoutConstraint(item: self.save, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 200)
             NSLayoutConstraint.activate([leading,trailing,height,top])
         }

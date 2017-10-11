@@ -29,6 +29,10 @@
 // Alert
 "Message" = "Message";
 
+// Card
+"PressCard" = "Press the card to flip the card!";
+"PressCard2" = "Press the card to move to the next card!";
+
 // Message
 "TooShortWord" = "This word is too short.";
 "TooLongWord" = "This word is too long.";

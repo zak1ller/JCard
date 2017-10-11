@@ -28,6 +28,10 @@
 // Alert
 "Message" = "信息";
 
+// Card
+"PressCard" = "按卡片翻转卡片！";
+"PressCard2" = "按卡移动到下一张卡！";
+
 // Message
 "TooShortWord" = "这个字太短了。";
 "TooLongWord" ="这个字太长了";

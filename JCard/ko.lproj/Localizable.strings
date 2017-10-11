@@ -28,6 +28,10 @@
 // Alert
 "Message" = "메시지";
 
+// Card
+"PressCard" = "카드를 터치하여 카드를 뒤집으세요!";
+"PressCard2" = "카드를 터치하면 다음 카드로 넘어갑니다.";
+
 // Message
 "TooShortWord" = "이 단어는 너무 짧습니다.";
 "TooLongWord" ="이 단어는 너무 깁니다.";

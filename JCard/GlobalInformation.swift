@@ -12,6 +12,12 @@ import UIKit
 class GlobalInformation {
     private let screen = UIScreen.main.bounds
     
+    var card_color_green = UIColor(red: 0/255, green: 168/255, blue: 107/255, alpha: 1)
+    var card_color_red = UIColor(red: 169/255, green: 5/255, blue: 51/255, alpha: 1)
+    var card_color_blue = UIColor(red: 0/255, green: 71/255, blue: 133/255, alpha: 1)
+    var card_color_black = UIColor(red: 45/255, green: 45/255, blue: 45/255, alpha: 1)
+    var card_color_gray = UIColor.lightGray
+    
     var top_menu_top_size: CGFloat {
         if screen.width <= 320 && screen.height <= 560 {
             return 35*0.83

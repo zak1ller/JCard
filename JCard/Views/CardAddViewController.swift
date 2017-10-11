@@ -75,6 +75,10 @@ class CardAddViewController: UIViewController {
     @IBOutlet private var extraField: UITextField!
     @IBOutlet private var save: UIButton!
     @IBAction private func pressSave(sender: UIButton) {
+        sender.alpha = 0.25
+        UIView.animate(withDuration: 0.5, animations: {
+            sender.alpha = 1
+        })
         if wordField.text!.lengthOfBytes(using: .utf8) < 1 {
             let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("TooShortWord", comment: ""), preferredStyle: .alert)
             alert.view.tintColor = UIColor.black
@@ -150,6 +154,10 @@ class CardAddViewController: UIViewController {
     private var isGroup = false
     @IBOutlet private var groupSelect: UIButton!
     @IBAction private func pressGroupSelect(sender: UIButton) {
+        sender.alpha = 0.25
+        UIView.animate(withDuration: 0.5, animations: {
+            sender.alpha = 1
+        })
         if try! Realm().objects(group.self).count == 0 {
             let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("ThereAreNoGroupToChoose", comment: ""), preferredStyle: .alert)
             alert.view.tintColor = UIColor.black
@@ -164,6 +172,11 @@ class CardAddViewController: UIViewController {
             let alert = UIAlertController(title: NSLocalizedString("Group", comment: ""), message: "", preferredStyle: .actionSheet)
             alert.view.tintColor = UIColor.black
             alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("CreateGroup", comment: ""), style: .destructive, handler: {
+                (_) in
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "GroupAddViewController")
+                self.present(vc!, animated: true, completion: nil)
+            }))
             alert.addAction(UIAlertAction(title: NSLocalizedString("NoGroup", comment: ""), style: .default, handler: {
                 (_) in
                 self.isGroup = false
@@ -304,11 +317,11 @@ class CardAddViewController: UIViewController {
             self.level4.setTitle("", for: .normal)
             self.level5.setTitle("", for: .normal)
             
-            self.level1.tintColor = UIColor.darkGray
-            self.level2.tintColor = UIColor.darkGray
-            self.level3.tintColor = UIColor.darkGray
-            self.level4.tintColor = UIColor.darkGray
-            self.level5.tintColor = UIColor.darkGray
+            self.level1.tintColor = GlobalInformation().card_color_blue
+            self.level2.tintColor = GlobalInformation().card_color_blue
+            self.level3.tintColor = GlobalInformation().card_color_blue
+            self.level4.tintColor = GlobalInformation().card_color_blue
+            self.level5.tintColor = GlobalInformation().card_color_blue
             
             self.level1.setImage(UIImage(named: "star.png"), for: .normal)
             self.level2.setImage(UIImage(named: "empty_star.png"), for: .normal)
