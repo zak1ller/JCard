@@ -9,12 +9,25 @@
 import UIKit
 import RealmSwift
 
+extension Array {
+    var shuffled: Array {
+        var elements = self
+        return elements.shuffle()
+    }
+    @discardableResult
+    mutating func shuffle() -> Array {
+        indices.dropLast().forEach { a in
+            guard case let b = Int(arc4random_uniform(UInt32(count - a))) + a, b != a else { return }
+            self.swapAt(a, b)
+        }
+        return self
+    }
+    var chooseOne: Element { return self[Int(arc4random_uniform(UInt32(count)))] }
+    func choose(_ n: Int) -> Array { return Array(shuffled.prefix(n)) }
+}
 class MainViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setLayout()
-        
+    private func reCard() {
         if showOption == "all" {
             cardDatas = try! Realm().objects(cards.self)
         } else if showOption == "memorized" {
@@ -22,6 +35,22 @@ class MainViewController: UIViewController {
         } else if showOption == "unmemorized" {
             cardDatas = try! Realm().objects(cards.self).filter("isMemorized = false")
         }
+    }
+    
+    private var cardNumbers: Array<String> = []
+    
+    private func reshuffle() {
+        cardNumbers.removeAll()
+        var index = 0
+        while(cardDatas.count > index) {
+            cardNumbers.append(cardDatas[index].number!)
+            index = index + 1
+        }
+        cardNumbers.shuffle()
+        print(cardNumbers)
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         level1.tag = 1
         level2.tag = 2
@@ -33,6 +62,7 @@ class MainViewController: UIViewController {
         wordLabel.text = ""
         titleLabel.text = ""
         meaningLabel.text = ""
+        extraLabel.text = ""
     }
     override func viewDidAppear(_ animated: Bool) {
         if showOption == "all" {
@@ -42,6 +72,9 @@ class MainViewController: UIViewController {
         } else if showOption == "unmemorized" {
             cardDatas = try! Realm().objects(cards.self).filter("isMemorized = false")
         }
+        reshuffle()
+        currentIndex = 0
+        cardStatus = true
         setLayout()
     }
     
@@ -51,25 +84,75 @@ class MainViewController: UIViewController {
     @IBOutlet private var level4: UIButton!
     @IBOutlet private var level5: UIButton!
     
+    @IBOutlet private var reloadButton: UIButton!
+    @IBAction private func pressReloadButton(sender: UIButton) {
+        if try! Realm().objects(cards.self).count == 0 {
+            let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("ThereAreNotCard", comment: ""), preferredStyle: .alert)
+            alert.view.tintColor = UIColor.black
+            present(alert, animated: true, completion: {
+                sleep(1)
+                self.dismiss(animated: true, completion: nil)
+            })
+        } else {
+            cardStatus = true
+            currentIndex = 0
+            reCard()
+            reshuffle()
+            setLayout()
+        }
+    }
+    
+    @IBOutlet private var cardDeleteButton: UIButton!
+    @IBAction private func pressCardDeleteButton(sender: UIButton) {
+        let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("DoYouWantDelete", comment: ""), preferredStyle: .alert)
+        alert.view.tintColor = UIColor.black
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: {
+            (_) in
+            try! Realm().write {
+                try! Realm().delete(self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0])
+            }
+            self.reCard()
+            self.cardStatus = false
+            self.pressCard(sender: self.card)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
     private var cardStatus = true {
         willSet(new) {
+            self.cardDeleteButton.isHidden = false
             if new == false {
                 self.wordLabel.isHidden = true
                 self.meaningLabel.isHidden = false
+                self.extraLabel.isHidden = false
                 self.titleLabel.text = NSLocalizedString("PressCard2", comment: "")
             } else {
                 self.wordLabel.isHidden = false
                 self.meaningLabel.isHidden = true
+                self.extraLabel.isHidden = true
                 self.titleLabel.text = NSLocalizedString("PressCard", comment: "")
             }
         }
+    }
+    private func nextCard() {
+        wordLabel.text = self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].word!
+        meaningLabel.text = self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].meaning!
+        extraLabel.text = self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].example1!
+        renewLevel(level: self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].imporment)
     }
     
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var wordLabel: UILabel!
     @IBOutlet private var meaningLabel: UILabel!
+    @IBOutlet private var extraLabel: UILabel!
     
     private func renewLevel(level: Int) {
+        level1.isHidden = false
+        level2.isHidden = false
+        level3.isHidden = false
+        level4.isHidden = false
+        level5.isHidden = false
         if level == 1 {
             level1.setImage(UIImage(named: "star.png"), for: .normal)
             level2.setImage(UIImage(named: "empty_star.png"), for: .normal)
@@ -103,7 +186,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBOutlet private var statusLabel: UILabel!
     @IBOutlet private var cardBackground: UIView!
     @IBOutlet private var card: UIButton!
     @IBAction private func pressCard(sender: UIButton) {
@@ -111,13 +193,28 @@ class MainViewController: UIViewController {
             sender.alpha = 0.25
             sender.alpha = 1
         })
-        if cardDatas.count <= currentIndex {
-            return
+        if cardStatus == false {
+            currentIndex = currentIndex + 1
         }
-        if cardStatus == true {
-            cardStatus = false
+        if cardDatas.count <= currentIndex {
+            wordLabel.isHidden = true
+            meaningLabel.isHidden = true
+            extraLabel.isHidden = true
+            cardDeleteButton.isHidden = true
+            level1.isHidden = true
+            level2.isHidden = true
+            level3.isHidden = true
+            level4.isHidden = true
+            level5.isHidden = true
+            titleLabel.isHidden = true
+            reloadButton.isHidden = false
         } else {
-            cardStatus = true
+            if cardStatus == true {
+                cardStatus = false
+            } else {
+                cardStatus = true
+                nextCard()
+            }
         }
     }
     @IBOutlet private var addCard: UIButton!
@@ -180,27 +277,6 @@ class MainViewController: UIViewController {
         }
         cardConst()
         
-        let statusConst = {
-            () in
-            self.statusLabel.translatesAutoresizingMaskIntoConstraints = false
-            self.statusLabel.textColor = UIColor.gray
-            if UIScreen.main.bounds.width <= 320 && UIScreen.main.bounds.height <= 560 {
-                self.statusLabel.font = UIFont.systemFont(ofSize: 11)
-            } else {
-                self.statusLabel.font = UIFont.systemFont(ofSize: 14)
-            }
-            if self.cardDatas.count == 0 {
-                self.statusLabel.text = NSLocalizedString("ThereAreNotCard", comment: "")
-            } else {
-                self.statusLabel.isHidden = true
-            }
-            
-            let centerX = NSLayoutConstraint(item: self.statusLabel, attribute: .centerX, relatedBy: .equal, toItem: self.cardBackground, attribute: .centerX, multiplier: 1, constant: 0)
-            let centerY = NSLayoutConstraint(item: self.statusLabel, attribute: .centerY, relatedBy: .equal, toItem: self.cardBackground, attribute: .centerY, multiplier: 1, constant: 0)
-            NSLayoutConstraint.activate([centerX,centerY])
-        }
-        statusConst()
-        
         let addCardConst = {
             () in
             self.addCard.translatesAutoresizingMaskIntoConstraints = false
@@ -257,7 +333,7 @@ class MainViewController: UIViewController {
             self.level5.tintColor = levelColor
             
             if self.cardDatas.count != 0 {
-                self.renewLevel(level: self.cardDatas[self.currentIndex].imporment)
+                self.renewLevel(level: self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].imporment)
             }
             
             let width1 = NSLayoutConstraint(item: self.level1, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size*0.7)
@@ -301,7 +377,10 @@ class MainViewController: UIViewController {
             () in
             self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
             if self.cardDatas.count != 0 {
+                self.titleLabel.isHidden = false
                 self.titleLabel.text = NSLocalizedString("PressCard", comment: "")
+            } else {
+                self.titleLabel.isHidden = true
             }
             
             var titleFont: CGFloat {
@@ -323,11 +402,15 @@ class MainViewController: UIViewController {
             () in
             self.wordLabel.translatesAutoresizingMaskIntoConstraints = false
             if self.cardDatas.count != 0 {
-                self.wordLabel.text = self.cardDatas[self.currentIndex].word!
+                self.wordLabel.isHidden = false
+                self.wordLabel.text = self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].word!
+            } else {
+                self.wordLabel.isHidden = true
             }
             self.wordLabel.numberOfLines = 1
             self.wordLabel.adjustsFontSizeToFitWidth = true
             self.wordLabel.minimumScaleFactor = 0.1
+            self.wordLabel.textAlignment = .center
             
             var wordFont: CGFloat {
                 if UIScreen.main.bounds.width <= 320 && UIScreen.main.bounds.height <= 560 {
@@ -350,12 +433,16 @@ class MainViewController: UIViewController {
             () in
             self.meaningLabel.translatesAutoresizingMaskIntoConstraints = false
             if self.cardDatas.count != 0 {
-                self.meaningLabel.text = self.cardDatas[self.currentIndex].meaning!
+                self.meaningLabel.isHidden = false
+                self.meaningLabel.text = self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].meaning!
+            } else {
+                self.meaningLabel.isHidden = true
             }
             self.meaningLabel.isHidden = true
             self.meaningLabel.numberOfLines = 1
             self.meaningLabel.adjustsFontSizeToFitWidth = true
             self.meaningLabel.minimumScaleFactor = 0.1
+            self.meaningLabel.textAlignment = .center
             
             var meaningFont: CGFloat {
                 if UIScreen.main.bounds.width <= 320 && UIScreen.main.bounds.height <= 560 {
@@ -373,6 +460,78 @@ class MainViewController: UIViewController {
             NSLayoutConstraint.activate([centerX,centerY,leading,trailing])
         }
         meaningLabelConst()
+        
+        let extraConst = {
+            () in
+            self.extraLabel.translatesAutoresizingMaskIntoConstraints = false
+            if self.cardDatas.count != 0 {
+                self.extraLabel.isHidden = false
+                self.extraLabel.text = self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].example1!
+            } else {
+                self.extraLabel.isHidden = true
+            }
+            self.extraLabel.isHidden = true
+            self.extraLabel.numberOfLines = 3
+            self.extraLabel.adjustsFontSizeToFitWidth = true
+            self.extraLabel.minimumScaleFactor = 0.1
+            self.extraLabel.textAlignment = .center
+            
+            var extraFont: CGFloat {
+                if UIScreen.main.bounds.width <= 320 && UIScreen.main.bounds.height <= 560 {
+                    return 11
+                } else {
+                    return 14
+                }
+            }
+            self.extraLabel.font = UIFont.systemFont(ofSize: extraFont)
+            let centerX = NSLayoutConstraint(item: self.extraLabel, attribute: .centerX, relatedBy: .equal, toItem: self.cardBackground, attribute: .centerX, multiplier: 1, constant: 0)
+            let centerY = NSLayoutConstraint(item: self.extraLabel, attribute: .centerY, relatedBy: .equal, toItem: self.cardBackground, attribute: .centerY, multiplier: 1, constant: 60)
+            let leading = NSLayoutConstraint(item: self.extraLabel, attribute: .leading, relatedBy: .equal, toItem: self.cardBackground, attribute: .leading, multiplier: 1, constant: 10)
+            let trailing = NSLayoutConstraint(item: self.extraLabel, attribute: .trailing, relatedBy: .equal, toItem: self.cardBackground, attribute: .trailing, multiplier: 1, constant: -10)
+            NSLayoutConstraint.activate([centerX,centerY,leading,trailing])
+        }
+        extraConst()
+        
+        let cardDeleteConst = {
+            () in
+            self.cardDeleteButton.translatesAutoresizingMaskIntoConstraints = false
+            self.cardDeleteButton.setTitle("", for: .normal)
+            self.cardDeleteButton.tintColor = UIColor.black
+            self.cardDeleteButton.setImage(UIImage(named: "delete.png"), for: .normal)
+            if self.cardDatas.count == 0 {
+                print(self.cardDatas.count)
+                self.cardDeleteButton.isHidden = true
+            } else {
+                self.cardDeleteButton.isHidden = false
+            }
+            
+            let width = NSLayoutConstraint(item: self.cardDeleteButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let height = NSLayoutConstraint(item: self.cardDeleteButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let bottom = NSLayoutConstraint(item: self.cardDeleteButton, attribute: .bottom, relatedBy: .equal, toItem: self.cardBackground, attribute: .bottom, multiplier: 1, constant: -20)
+            let trailing = NSLayoutConstraint(item: self.cardDeleteButton, attribute: .trailing, relatedBy: .equal, toItem: self.cardBackground, attribute: .trailing, multiplier: 1, constant: -20)
+            NSLayoutConstraint.activate([width,height,bottom,trailing])
+        }
+        cardDeleteConst()
+        
+        let reloadButtonConst = {
+            () in
+            self.reloadButton.translatesAutoresizingMaskIntoConstraints = false
+            self.reloadButton.setTitle("", for: .normal)
+            self.reloadButton.setImage(UIImage(named: "reload.png"), for: .normal)
+            self.reloadButton.tintColor = UIColor.black
+            if self.cardDatas.count == 0 {
+                self.reloadButton.isHidden = false
+            } else {
+                self.reloadButton.isHidden = true
+            }
+            
+            let width = NSLayoutConstraint(item: self.reloadButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size*2)
+            let height = NSLayoutConstraint(item: self.reloadButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size*2)
+            let centerX = NSLayoutConstraint(item: self.reloadButton, attribute: .centerX, relatedBy: .equal, toItem: self.cardBackground, attribute: .centerX, multiplier: 1, constant: 0)
+            let centerY = NSLayoutConstraint(item: self.reloadButton, attribute: .centerY, relatedBy: .equal, toItem: self.cardBackground, attribute: .centerY, multiplier: 1, constant: 0)
+            NSLayoutConstraint.activate([width,height,centerX,centerY])
+        }
+        reloadButtonConst()
     }
     
     func startBlink(label: UILabel) {

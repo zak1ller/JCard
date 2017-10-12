@@ -8,6 +8,8 @@
 "CreateGroup" = "그룹 만들기";
 
 // Text
+"Yes" = "예";
+"No" = "아니오";
 "Cancel" = "취소";
 "Confirm" = "확인";
 "Word" = "단어";
@@ -44,3 +46,4 @@
 "AlreadyName" = "같은 이름이 존재합니다.";
 "SelectGroupColor" = "그룹 색상을 선택해주세요.";
 "Registered" = "등록되었습니다.";
+"DoYouWantDelete" = "이 카드를 삭제하시겠습니까?";

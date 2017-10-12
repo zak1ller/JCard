@@ -324,8 +324,8 @@ class CardAddViewController: UIViewController {
             self.level5.tintColor = GlobalInformation().card_color_blue
             
             self.level1.setImage(UIImage(named: "star.png"), for: .normal)
-            self.level2.setImage(UIImage(named: "empty_star.png"), for: .normal)
-            self.level3.setImage(UIImage(named: "empty_star.png"), for: .normal)
+            self.level2.setImage(UIImage(named: "star.png"), for: .normal)
+            self.level3.setImage(UIImage(named: "star.png"), for: .normal)
             self.level4.setImage(UIImage(named: "empty_star.png"), for: .normal)
             self.level5.setImage(UIImage(named: "empty_star.png"), for: .normal)
             

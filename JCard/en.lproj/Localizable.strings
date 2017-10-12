@@ -9,6 +9,8 @@
 
 
 // Text
+"Yes" = "Yes";
+"No" = "No";
 "Cancel" = "Cancel";
 "Confirm" = "Confirm";
 "Word" = "Word";
@@ -45,3 +47,4 @@
 "AlreadyName" = "This name is already.";
 "SelectGroupColor" = "Please select this group color.";
 "Registered" = "Registered.";
+"DoYouWantDelete" = "Do you wanna delete this card?";

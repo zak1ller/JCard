@@ -21,6 +21,8 @@
 		127E16D71F860BF70096947D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127E16D61F860BF70096947D /* Assets.xcassets */; };
 		127E16DA1F860BF70096947D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127E16D81F860BF70096947D /* LaunchScreen.storyboard */; };
 		127E16E71F860C9A0096947D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 127E16E91F860C9A0096947D /* Localizable.strings */; };
+		128D47B41F8F259100F62FC6 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 128D47B31F8F258A00F62FC6 /* delete.png */; };
+		128D47B61F8F305100F62FC6 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 128D47B51F8F304A00F62FC6 /* reload.png */; };
 		12AA7E571F868A1B0075C3AE /* CardInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AA7E561F868A1B0075C3AE /* CardInformation.swift */; };
 		12E7720D1F87EEBA006E7BCB /* new.png in Resources */ = {isa = PBXBuildFile; fileRef = 12E7720C1F87EE72006E7BCB /* new.png */; };
 		12E7720E1F87EEE2006E7BCB /* UserDefaultKeys.strings in Resources */ = {isa = PBXBuildFile; fileRef = 124D8A831F86903300ECA11C /* UserDefaultKeys.strings */; };
@@ -51,6 +53,8 @@
 		127E16EA1F860C9B0096947D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		127E16EB1F860C9C0096947D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		127E16EC1F860C9D0096947D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		128D47B31F8F258A00F62FC6 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		128D47B51F8F304A00F62FC6 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
 		12AA7E561F868A1B0075C3AE /* CardInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInformation.swift; sourceTree = "<group>"; };
 		12E7720C1F87EE72006E7BCB /* new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new.png; sourceTree = "<group>"; };
 		1B0FF5767D037602283B8597 /* Pods_JCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +133,8 @@
 		1296EEE71F861D0C00EBCCB3 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				128D47B51F8F304A00F62FC6 /* reload.png */,
+				128D47B31F8F258A00F62FC6 /* delete.png */,
 				121986441F8B766E0046E21C /* empty_star.png */,
 				121986451F8B766F0046E21C /* star.png */,
 				123559131F88934700B3E86E /* left.png */,
@@ -227,7 +233,9 @@
 				127E16D71F860BF70096947D /* Assets.xcassets in Resources */,
 				127E16D51F860BF70096947D /* Main.storyboard in Resources */,
 				123559141F88935000B3E86E /* left.png in Resources */,
+				128D47B41F8F259100F62FC6 /* delete.png in Resources */,
 				12E7720E1F87EEE2006E7BCB /* UserDefaultKeys.strings in Resources */,
+				128D47B61F8F305100F62FC6 /* reload.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

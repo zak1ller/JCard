@@ -8,6 +8,8 @@
 "CreateGroup" = "グループを作る";
 
 // Text
+"Yes" = "はい";
+"No" = "いいえ";
 "Cancel" = "キャンセル";
 "Confirm" = "確認";
 "Word" = "単語";
@@ -44,3 +46,4 @@
 "AlreadyName" = "この名前は既にあります。";
 "SelectGroupColor" = "このグループの色を選択してください。";
 "Registered" = "登録された。";
+"DoYouWantDelete" = "このカードを削除しますか？";

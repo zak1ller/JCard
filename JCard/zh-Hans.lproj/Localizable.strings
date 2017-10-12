@@ -8,6 +8,8 @@
 "CreateGroup" = "创建组";
 
 // Text
+"Yes" = "是";
+"No" = "没有";
 "Cancel" = "取消";
 "Confirm" = "确认";
 "Word" = "字";
@@ -44,3 +46,4 @@
 "AlreadyName" = "这个名字已经是";
 "SelectGroupColor" = "请选择此组颜色。";
 "Registered" = "它已被注册。";
+"DoYouWantDelete" = "你想删除这张卡吗？";
