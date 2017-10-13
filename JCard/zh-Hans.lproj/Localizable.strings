@@ -6,6 +6,8 @@
 "Setting" = "设置";
 "SelectGroup" = "选择组";
 "CreateGroup" = "创建组";
+"ChangeGroup" = "更改组";
+"EditCard" = "编辑此卡";
 
 // Text
 "Yes" = "是";
@@ -26,6 +28,7 @@
 "Black" = "黑色";
 "Gray" = "灰色";
 "CardLevel" = "卡级别";
+"Menu" = "菜单";
 
 // Alert
 "Message" = "信息";
@@ -47,3 +50,4 @@
 "SelectGroupColor" = "请选择此组颜色。";
 "Registered" = "它已被注册。";
 "DoYouWantDelete" = "你想删除这张卡吗？";
+"ChangedGroup" = "组更改。";

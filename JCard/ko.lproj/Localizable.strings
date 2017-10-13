@@ -6,6 +6,8 @@
 "Setting" = "설정";
 "SelectGroup" = "그룹 선택";
 "CreateGroup" = "그룹 만들기";
+"ChangeGroup" = "그룹 변경";
+"EditCard" = "이 카드 수정";
 
 // Text
 "Yes" = "예";
@@ -26,6 +28,7 @@
 "Black" = "블랙";
 "Gray" = "그레이";
 "CardLevel" = "카드 레벨";
+"Menu" = "메뉴";
 
 // Alert
 "Message" = "메시지";
@@ -47,3 +50,4 @@
 "SelectGroupColor" = "그룹 색상을 선택해주세요.";
 "Registered" = "등록되었습니다.";
 "DoYouWantDelete" = "이 카드를 삭제하시겠습니까?";
+"ChangedGroup" = "그룹이 변경되었습니다.";

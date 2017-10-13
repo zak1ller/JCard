@@ -104,6 +104,27 @@
                                     <action selector="pressReloadButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I2O-fp-FPt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wq-iW-vq6">
+                                <rect key="frame" x="313" y="637" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="pressMoreButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BRg-3J-AHc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1N-V5-Ual">
+                                <rect key="frame" x="25" y="617" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="pressIsMemorizedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tSR-Yx-kus"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXS-0u-Hei">
+                                <rect key="frame" x="146" y="626" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -114,12 +135,15 @@
                         <outlet property="cardBackground" destination="fAD-41-UlG" id="CNv-Ki-Z7y"/>
                         <outlet property="cardDeleteButton" destination="ECs-6r-a3u" id="z8r-Pp-0Mt"/>
                         <outlet property="extraLabel" destination="zGJ-8H-hFB" id="cEA-Fq-1vz"/>
+                        <outlet property="groupInformation" destination="jXS-0u-Hei" id="Qsd-eM-n7d"/>
+                        <outlet property="isMemorized" destination="J1N-V5-Ual" id="E8p-wg-Pwk"/>
                         <outlet property="level1" destination="OhH-kE-S6o" id="xDD-Sf-L9z"/>
                         <outlet property="level2" destination="uOu-Ea-TUV" id="cUu-ce-4dl"/>
                         <outlet property="level3" destination="8LN-io-PrZ" id="uTC-Bs-uOM"/>
                         <outlet property="level4" destination="uUe-PQ-0oi" id="1T2-wl-KFP"/>
                         <outlet property="level5" destination="OP6-Vq-rMJ" id="vC1-UB-uCl"/>
                         <outlet property="meaningLabel" destination="JgX-Rt-4ez" id="zcu-KH-lfO"/>
+                        <outlet property="moreButton" destination="6Wq-iW-vq6" id="lgJ-iD-alJ"/>
                         <outlet property="reloadButton" destination="k6m-Qf-Sfe" id="ngk-tD-kPm"/>
                         <outlet property="set" destination="Wdd-PT-wJp" id="IHe-G4-j3r"/>
                         <outlet property="titleLabel" destination="7Le-1m-1Qk" id="b86-Bd-ncl"/>

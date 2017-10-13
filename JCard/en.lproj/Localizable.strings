@@ -6,6 +6,8 @@
 "Setting" = "Setting";
 "SelectGroup" = "Select Group";
 "CreateGroup" = "Create Group";
+"ChangeGroup" = "Change Group";
+"EditCard" = "Editing this card";
 
 
 // Text
@@ -27,6 +29,7 @@
 "Black" = "Black";
 "Gray" = "Gray";
 "CardLevel" = "Card Level";
+"Menu" = "Menu";
 
 // Alert
 "Message" = "Message";
@@ -48,3 +51,4 @@
 "SelectGroupColor" = "Please select this group color.";
 "Registered" = "Registered.";
 "DoYouWantDelete" = "Do you wanna delete this card?";
+"ChangedGroup" = "Group changed.";

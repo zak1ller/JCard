@@ -47,7 +47,6 @@ class MainViewController: UIViewController {
             index = index + 1
         }
         cardNumbers.shuffle()
-        print(cardNumbers)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +82,68 @@ class MainViewController: UIViewController {
     @IBOutlet private var level3: UIButton!
     @IBOutlet private var level4: UIButton!
     @IBOutlet private var level5: UIButton!
+    
+    @IBOutlet private var groupInformation: UILabel!
+    
+    @IBOutlet private var isMemorized: UIButton!
+    @IBAction private func pressIsMemorized(sender: UIButton) {
+        if sender.tag == 0 {
+            try! Realm().write {
+                self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].isMemorized = true
+            }
+            sender.tag = 1
+            sender.setImage(UIImage(named: "completed.png"), for: .normal)
+        } else {
+            try! Realm().write {
+                self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].isMemorized = false
+            }
+            sender.tag = 0
+            sender.setImage(UIImage(named: "uncompleted.png"), for: .normal)
+        }
+    }
+    
+    @IBOutlet private var moreButton: UIButton!
+    @IBAction private func pressMoreButton(sender: UIButton) {
+        let alert = UIAlertController(title: NSLocalizedString("Menu", comment: ""), message: self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].word!, preferredStyle: .actionSheet)
+        alert.view.tintColor = UIColor.black
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("EditCard", comment: ""), style: .default, handler: {
+            (_) in
+            
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ChangeGroup", comment: ""), style: .default, handler: {
+            (_) in
+            let alert = UIAlertController(title: NSLocalizedString("Menu", comment: ""), message: NSLocalizedString("ChangeGroup", comment: ""), preferredStyle: .actionSheet)
+            alert.view.tintColor = UIColor.black
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("NoGroup", comment: ""), style: .destructive, handler: {
+                (_) in
+                try! Realm().write {
+                    self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_number = nil
+                    self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].isGroup = false
+                }
+                let alert = MinsuLibrarys().alert_confirm(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("ChangedGroup", comment: ""))
+                self.present(alert, animated: true, completion: nil)
+            }))
+            let data = try! Realm().objects(group.self)
+            var index = 0
+            while(data.count > index) {
+                alert.addAction(UIAlertAction(title: data[index].name!, style: .default, handler: {
+                    (title) in
+                    let gg = try! Realm().objects(group.self).filter("name = '\(title.title!)'")[0]
+                    try! Realm().write {
+                        self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_number = gg.number
+                        self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].isGroup = true
+                    }
+                    let alert = MinsuLibrarys().alert_confirm(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("ChangedGroup", comment: ""))
+                    self.present(alert, animated: true, completion: nil)
+                }))
+                index = index + 1
+            }
+            self.present(alert, animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
     
     @IBOutlet private var reloadButton: UIButton!
     @IBAction private func pressReloadButton(sender: UIButton) {
@@ -140,6 +201,13 @@ class MainViewController: UIViewController {
         meaningLabel.text = self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].meaning!
         extraLabel.text = self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].example1!
         renewLevel(level: self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].imporment)
+        if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].isMemorized == true {
+            isMemorized.tag = 1
+            isMemorized.setImage(UIImage(named: "completed.png"), for: .normal)
+        } else {
+            isMemorized.tag = 0
+            isMemorized.setImage(UIImage(named: "uncompleted.png"), for: .normal)
+        }
     }
     
     @IBOutlet private var titleLabel: UILabel!
@@ -207,6 +275,8 @@ class MainViewController: UIViewController {
             level4.isHidden = true
             level5.isHidden = true
             titleLabel.isHidden = true
+            moreButton.isHidden = true
+            isMemorized.isHidden = true
             reloadButton.isHidden = false
         } else {
             if cardStatus == true {
@@ -499,7 +569,6 @@ class MainViewController: UIViewController {
             self.cardDeleteButton.tintColor = UIColor.black
             self.cardDeleteButton.setImage(UIImage(named: "delete.png"), for: .normal)
             if self.cardDatas.count == 0 {
-                print(self.cardDatas.count)
                 self.cardDeleteButton.isHidden = true
             } else {
                 self.cardDeleteButton.isHidden = false
@@ -532,6 +601,76 @@ class MainViewController: UIViewController {
             NSLayoutConstraint.activate([width,height,centerX,centerY])
         }
         reloadButtonConst()
+        
+        let moreButtonConst = {
+            () in
+            self.moreButton.translatesAutoresizingMaskIntoConstraints = false
+            self.moreButton.setTitle("", for: .normal)
+            self.moreButton.setImage(UIImage(named: "more.png"), for: .normal)
+            self.moreButton.tintColor = UIColor.black
+            if self.cardDatas.count == 0 {
+                self.moreButton.isHidden = true
+            } else {
+                self.moreButton.isHidden = false
+            }
+            
+            let width = NSLayoutConstraint(item: self.moreButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let height = NSLayoutConstraint(item: self.moreButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let centerX = NSLayoutConstraint(item: self.moreButton, attribute: .centerX, relatedBy: .equal, toItem: self.cardBackground, attribute: .centerX, multiplier: 1, constant: 0)
+            let bottom = NSLayoutConstraint(item: self.moreButton, attribute: .bottom, relatedBy: .equal, toItem: self.cardBackground, attribute: .bottom, multiplier: 1, constant: -20)
+            NSLayoutConstraint.activate([width,height,centerX,bottom])
+        }
+        moreButtonConst()
+        
+        let isMemorizedConst = {
+            () in
+            self.isMemorized.translatesAutoresizingMaskIntoConstraints = false
+            self.isMemorized.setTitle("", for: .normal)
+            self.isMemorized.tintColor = UIColor.black
+            if self.cardDatas.count == 0 {
+                self.isMemorized.isHidden = true
+            } else {
+                self.isMemorized.isHidden = false
+                if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].isMemorized == true {
+                    self.isMemorized.tag = 1
+                    self.isMemorized.setImage(UIImage(named: "completed.png"), for: .normal)
+                } else {
+                    self.isMemorized.tag = 0
+                    self.isMemorized.setImage(UIImage(named: "uncompleted.png"), for: .normal)
+                }
+            }
+            let width = NSLayoutConstraint(item: self.isMemorized, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let height = NSLayoutConstraint(item: self.isMemorized, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let bottom = NSLayoutConstraint(item: self.isMemorized, attribute: .bottom, relatedBy: .equal, toItem: self.cardBackground, attribute: .bottom, multiplier: 1, constant: -20)
+            let leading = NSLayoutConstraint(item: self.isMemorized, attribute: .leading, relatedBy: .equal, toItem: self.cardBackground, attribute: .leading, multiplier: 1, constant: 20)
+            NSLayoutConstraint.activate([width,height,bottom,leading])
+        }
+        isMemorizedConst()
+        
+        let groupInformationConst = {
+            () in
+            self.groupInformation.translatesAutoresizingMaskIntoConstraints = false
+            if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].isGroup == true {
+                let gg = try! Realm().objects(group.self).filter("number = '\(self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_number!)'")
+                self.groupInformation.text = gg[0].name!
+                var groupColor: UIColor {
+                    if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_color == "red" {
+                        return GlobalInformation().card_color_red
+                    } else if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_color == "green" {
+                        return GlobalInformation().card_color_green
+                    } else if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_color == "blue" {
+                        return GlobalInformation().card_color_blue
+                    } else if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_color == "black" {
+                        return GlobalInformation().card_color_black
+                    } else {
+                        return GlobalInformation().card_color_gray
+                    }
+                }
+                self.groupInformation.textColor = groupColor
+            }
+            // HERE
+        }
+        groupInformationConst()
     }
     
     func startBlink(label: UILabel) {

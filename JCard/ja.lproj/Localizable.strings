@@ -6,6 +6,8 @@
 "Setting" = "設定";
 "SelectGroup" = "グループを選択";
 "CreateGroup" = "グループを作る";
+"ChangeGroup" = "グループの変更";
+"EditCard" = "このカードを編集する";
 
 // Text
 "Yes" = "はい";
@@ -26,6 +28,7 @@
 "Black" = "ブラック";
 "Gray" = "グレー";
 "CardLevel" = "カードレベル";
+"Menu" = "メニュー";
 
 // Alert
 "Message" = "メッセージ";
@@ -47,3 +50,4 @@
 "SelectGroupColor" = "このグループの色を選択してください。";
 "Registered" = "登録された。";
 "DoYouWantDelete" = "このカードを削除しますか？";
+"ChangedGroup" = "グループが変更されました。";
