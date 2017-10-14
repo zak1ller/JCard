@@ -109,7 +109,9 @@ class MainViewController: UIViewController {
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: NSLocalizedString("EditCard", comment: ""), style: .default, handler: {
             (_) in
-            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "CardEditViewController") as! CardEditViewController
+            vc.number = self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].number!
+            self.present(vc, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("ChangeGroup", comment: ""), style: .default, handler: {
             (_) in
@@ -185,6 +187,7 @@ class MainViewController: UIViewController {
             self.cardDeleteButton.isHidden = false
             if new == false {
                 self.wordLabel.isHidden = true
+                self.groupInformation.isHidden = false
                 self.meaningLabel.isHidden = false
                 self.extraLabel.isHidden = false
                 self.titleLabel.text = NSLocalizedString("PressCard2", comment: "")
@@ -192,6 +195,7 @@ class MainViewController: UIViewController {
                 self.wordLabel.isHidden = false
                 self.meaningLabel.isHidden = true
                 self.extraLabel.isHidden = true
+                self.groupInformation.isHidden = true
                 self.titleLabel.text = NSLocalizedString("PressCard", comment: "")
             }
         }
@@ -207,6 +211,27 @@ class MainViewController: UIViewController {
         } else {
             isMemorized.tag = 0
             isMemorized.setImage(UIImage(named: "uncompleted.png"), for: .normal)
+        }
+        if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].isGroup == true {
+            let groupData = try! Realm().objects(group.self).filter("number = '\(self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_number!)'")[0]
+            groupInformation.text = "[\(groupData.name!)]"
+            var groupColor: UIColor {
+                if groupData.color == "Red" {
+                    return GlobalInformation().card_color_red
+                } else if groupData.color == "Green" {
+                    return GlobalInformation().card_color_green
+                } else if groupData.color == "Blue" {
+                    return GlobalInformation().card_color_blue
+                } else if groupData.color == "Black" {
+                    return GlobalInformation().card_color_black
+                } else {
+                    return GlobalInformation().card_color_gray
+                }
+            }
+            groupInformation.textColor = groupColor
+        } else {
+            groupInformation.text = "[\(NSLocalizedString("NoGroup", comment: ""))]"
+            groupInformation.textColor = UIColor.gray
         }
     }
     
@@ -277,6 +302,7 @@ class MainViewController: UIViewController {
             titleLabel.isHidden = true
             moreButton.isHidden = true
             isMemorized.isHidden = true
+            groupInformation.isHidden = true
             reloadButton.isHidden = false
         } else {
             if cardStatus == true {
@@ -652,23 +678,39 @@ class MainViewController: UIViewController {
             self.groupInformation.translatesAutoresizingMaskIntoConstraints = false
             if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].isGroup == true {
                 let gg = try! Realm().objects(group.self).filter("number = '\(self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_number!)'")
-                self.groupInformation.text = gg[0].name!
+                self.groupInformation.text = "[\(gg[0].name!)]"
                 var groupColor: UIColor {
-                    if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_color == "red" {
+                    if gg[0].color == "Red" {
                         return GlobalInformation().card_color_red
-                    } else if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_color == "green" {
+                    } else if gg[0].color == "Green" {
                         return GlobalInformation().card_color_green
-                    } else if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_color == "blue" {
+                    } else if gg[0].color == "Blue" {
                         return GlobalInformation().card_color_blue
-                    } else if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_color == "black" {
+                    } else if gg[0].color == "Black" {
                         return GlobalInformation().card_color_black
                     } else {
                         return GlobalInformation().card_color_gray
                     }
                 }
                 self.groupInformation.textColor = groupColor
+            } else {
+                self.groupInformation.textColor = UIColor.gray
+                self.groupInformation.text = "[\(NSLocalizedString("NoGroup", comment: ""))]"
             }
-            // HERE
+            
+            var groupFont: CGFloat {
+                if UIScreen.main.bounds.width <= 320 && UIScreen.main.bounds.height <= 560 {
+                    return 14
+                } else {
+                    return 17
+                }
+            }
+            self.groupInformation.font = UIFont.systemFont(ofSize: groupFont)
+            self.groupInformation.isHidden = true
+            
+            let centerX = NSLayoutConstraint(item: self.groupInformation, attribute: .centerX, relatedBy: .equal, toItem: self.cardBackground, attribute: .centerX, multiplier: 1, constant: 0)
+            let centerY = NSLayoutConstraint(item: self.groupInformation, attribute: .centerY, relatedBy: .equal, toItem: self.cardBackground, attribute: .centerY, multiplier: 1, constant: -45)
+            NSLayoutConstraint.activate([centerX,centerY])
         }
         groupInformationConst()
     }

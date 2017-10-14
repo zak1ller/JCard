@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		121986461F8B76760046E21C /* empty_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 121986441F8B766E0046E21C /* empty_star.png */; };
 		121986471F8B76790046E21C /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 121986451F8B766F0046E21C /* star.png */; };
+		123256E61F92092A0000599A /* CardEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123256E51F92092A0000599A /* CardEditViewController.swift */; };
 		123559121F8890F600B3E86E /* CardAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123559111F8890F600B3E86E /* CardAddViewController.swift */; };
 		123559141F88935000B3E86E /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 123559131F88934700B3E86E /* left.png */; };
 		123559161F88A7E500B3E86E /* GroupAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123559151F88A7E500B3E86E /* GroupAddViewController.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		121986441F8B766E0046E21C /* empty_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty_star.png; sourceTree = "<group>"; };
 		121986451F8B766F0046E21C /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		123256E51F92092A0000599A /* CardEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditViewController.swift; sourceTree = "<group>"; };
 		123559111F8890F600B3E86E /* CardAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAddViewController.swift; sourceTree = "<group>"; };
 		123559131F88934700B3E86E /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
 		123559151F88A7E500B3E86E /* GroupAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAddViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				127E16D11F860BF70096947D /* MainViewController.swift */,
 				123559111F8890F600B3E86E /* CardAddViewController.swift */,
 				123559151F88A7E500B3E86E /* GroupAddViewController.swift */,
+				123256E51F92092A0000599A /* CardEditViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				127E16D21F860BF70096947D /* MainViewController.swift in Sources */,
+				123256E61F92092A0000599A /* CardEditViewController.swift in Sources */,
 				123559121F8890F600B3E86E /* CardAddViewController.swift in Sources */,
 				124D8A861F86913C00ECA11C /* GlobalInformation.swift in Sources */,
 				127E16D01F860BF70096947D /* AppDelegate.swift in Sources */,
