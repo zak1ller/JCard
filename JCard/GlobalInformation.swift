@@ -17,6 +17,7 @@ class GlobalInformation {
     var card_color_blue = UIColor(red: 0/255, green: 71/255, blue: 133/255, alpha: 1)
     var card_color_black = UIColor(red: 45/255, green: 45/255, blue: 45/255, alpha: 1)
     var card_color_gray = UIColor.lightGray
+    var color_lightBlue = UIColor(red: 52/255, green: 204/255, blue: 255/255, alpha: 1)
     
     var top_menu_top_size: CGFloat {
         if screen.width <= 320 && screen.height <= 560 {

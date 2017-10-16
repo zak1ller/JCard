@@ -10,11 +10,13 @@
 "EditCard" = "이 카드 수정";
 
 // Text
+"Back" = "뒤로가기";
 "Yes" = "예";
 "No" = "아니오";
 "Cancel" = "취소";
 "Confirm" = "확인";
 "Word" = "단어";
+"WordManagement" = "단어 관리";
 "Meaning" = "의미";
 "Example" = "예문";
 "Group" = "그룹";

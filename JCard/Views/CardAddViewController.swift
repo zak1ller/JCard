@@ -269,14 +269,23 @@ class CardAddViewController: UIViewController {
             () in
             self.groupSelect.translatesAutoresizingMaskIntoConstraints = false
             self.groupSelect.setTitle(NSLocalizedString("SelectGroup", comment: ""), for: .normal)
-            self.groupSelect.setTitleColor(UIColor.white, for: .normal)
-            self.groupSelect.backgroundColor = UIColor.darkGray
-            SokDesigner().cornerRadius(obj: self.groupSelect, value: 8)
+            self.groupSelect.setTitleColor(UIColor.black, for: .normal)
+            self.groupSelect.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+            SokDesigner().cornerRadius(obj: self.groupSelect, value: 4)
             
-            let height = NSLayoutConstraint(item: self.groupSelect, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().tf_height_size+15)
+            var fontSize: CGFloat {
+                if UIScreen.main.bounds.width <= 320 && UIScreen.main.bounds.height <= 560 {
+                    return 12
+                } else {
+                    return 15
+                }
+            }
+            self.groupSelect.titleLabel?.font = UIFont.boldSystemFont(ofSize: fontSize)
+            
+            let height = NSLayoutConstraint(item: self.groupSelect, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().tf_height_size)
             let leading = NSLayoutConstraint(item: self.groupSelect, attribute: .leading, relatedBy: .equal, toItem: self.subview, attribute: .leading, multiplier: 1, constant: 5)
             let trailing = NSLayoutConstraint(item: self.groupSelect, attribute: .trailing, relatedBy: .equal, toItem: self.subview, attribute: .trailing, multiplier: 1, constant: -5)
-            let top = NSLayoutConstraint(item: self.groupSelect, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 170)
+            let top = NSLayoutConstraint(item: self.groupSelect, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 165)
             NSLayoutConstraint.activate([height,leading,trailing,top])
         }
         groupSelectConst()
@@ -289,16 +298,16 @@ class CardAddViewController: UIViewController {
             
             var fontSize: CGFloat {
                 if UIScreen.main.bounds.width <= 320 && UIScreen.main.bounds.height <= 560 {
-                    return 11
+                    return 10
                 } else {
-                    return 14
+                    return 13
                 }
             }
             self.importantLabel.font = UIFont.systemFont(ofSize: fontSize)
             
             let leading = NSLayoutConstraint(item: self.importantLabel, attribute: .leading, relatedBy: .equal, toItem: self.subview, attribute: .leading, multiplier: 1, constant: 5)
             let trailing = NSLayoutConstraint(item: self.importantLabel, attribute: .trailing, relatedBy: .equal, toItem: self.subview, attribute: .trailing, multiplier: 1, constant: -5)
-            let top = NSLayoutConstraint(item: self.importantLabel, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 240)
+            let top = NSLayoutConstraint(item: self.importantLabel, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 215)
             NSLayoutConstraint.activate([leading,trailing,top])
         }
         importantLabelConst()
@@ -317,11 +326,11 @@ class CardAddViewController: UIViewController {
             self.level4.setTitle("", for: .normal)
             self.level5.setTitle("", for: .normal)
             
-            self.level1.tintColor = GlobalInformation().card_color_blue
-            self.level2.tintColor = GlobalInformation().card_color_blue
-            self.level3.tintColor = GlobalInformation().card_color_blue
-            self.level4.tintColor = GlobalInformation().card_color_blue
-            self.level5.tintColor = GlobalInformation().card_color_blue
+            self.level1.tintColor = GlobalInformation().card_color_green
+            self.level2.tintColor = GlobalInformation().card_color_green
+            self.level3.tintColor = GlobalInformation().card_color_green
+            self.level4.tintColor = GlobalInformation().card_color_green
+            self.level5.tintColor = GlobalInformation().card_color_green
             
             self.level1.setImage(UIImage(named: "star.png"), for: .normal)
             self.level2.setImage(UIImage(named: "star.png"), for: .normal)
@@ -350,11 +359,11 @@ class CardAddViewController: UIViewController {
             let leading5 = NSLayoutConstraint(item: self.level5, attribute: .leading, relatedBy: .equal, toItem: self.subview, attribute: .leading, multiplier: 1, constant: 185)
             NSLayoutConstraint.activate([leading1,leading2,leading3,leading4,leading5])
             
-            let top1 = NSLayoutConstraint(item: self.level1, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 260)
-            let top2 = NSLayoutConstraint(item: self.level2, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 260)
-            let top3 = NSLayoutConstraint(item: self.level3, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 260)
-            let top4 = NSLayoutConstraint(item: self.level4, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 260)
-            let top5 = NSLayoutConstraint(item: self.level5, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 260)
+            let top1 = NSLayoutConstraint(item: self.level1, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 240)
+            let top2 = NSLayoutConstraint(item: self.level2, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 240)
+            let top3 = NSLayoutConstraint(item: self.level3, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 240)
+            let top4 = NSLayoutConstraint(item: self.level4, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 240)
+            let top5 = NSLayoutConstraint(item: self.level5, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 240)
             NSLayoutConstraint.activate([top1,top2,top3,top4,top5])
         }
         levelButtonsConst()
@@ -363,14 +372,23 @@ class CardAddViewController: UIViewController {
             () in
             self.save.translatesAutoresizingMaskIntoConstraints = false
             self.save.setTitle(NSLocalizedString("Save", comment: ""), for: .normal)
-            self.save.setTitleColor(UIColor.white, for: .normal)
-            self.save.backgroundColor = UIColor.darkGray
-            SokDesigner().cornerRadius(obj: self.save, value: 8)
+            self.save.setTitleColor(UIColor.black, for: .normal)
+            self.save.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+            SokDesigner().cornerRadius(obj: self.save, value: 4)
             
-            let height = NSLayoutConstraint(item: self.save, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().tf_height_size+15)
+            var fontSize: CGFloat {
+                if UIScreen.main.bounds.width <= 320 && UIScreen.main.bounds.height <= 560 {
+                    return 12
+                } else {
+                    return 15
+                }
+            }
+            self.save.titleLabel?.font = UIFont.boldSystemFont(ofSize: fontSize)
+            
+            let height = NSLayoutConstraint(item: self.save, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().tf_height_size)
             let leading = NSLayoutConstraint(item: self.save, attribute: .leading, relatedBy: .equal, toItem: self.subview, attribute: .leading, multiplier: 1, constant: 5)
             let trailing = NSLayoutConstraint(item: self.save, attribute: .trailing, relatedBy: .equal, toItem: self.subview, attribute: .trailing, multiplier: 1, constant: -5)
-            let top = NSLayoutConstraint(item: self.save, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 325)
+            let top = NSLayoutConstraint(item: self.save, attribute: .top, relatedBy: .equal, toItem: self.subview, attribute: .top, multiplier: 1, constant: 295)
             NSLayoutConstraint.activate([height,leading,trailing,top])
         }
         saveButtonConst()

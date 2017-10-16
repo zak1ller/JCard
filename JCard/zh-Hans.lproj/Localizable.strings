@@ -10,11 +10,13 @@
 "EditCard" = "编辑此卡";
 
 // Text
+"Back" = "回去";
 "Yes" = "是";
 "No" = "没有";
 "Cancel" = "取消";
 "Confirm" = "确认";
 "Word" = "字";
+"WordManagement" = "字管理";
 "Meaning" = "含义";
 "Example" = "示例";
 "Group" = "组";

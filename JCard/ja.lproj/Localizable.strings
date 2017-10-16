@@ -10,11 +10,13 @@
 "EditCard" = "このカードを編集する";
 
 // Text
+"Back" = "戻る";
 "Yes" = "はい";
 "No" = "いいえ";
 "Cancel" = "キャンセル";
 "Confirm" = "確認";
 "Word" = "単語";
+"WordManagement" = "ワード管理";
 "Meaning" = "意味";
 "Example" = "例文";
 "Group" = "グループ";

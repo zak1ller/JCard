@@ -82,8 +82,20 @@ class MainViewController: UIViewController {
     @IBOutlet private var level3: UIButton!
     @IBOutlet private var level4: UIButton!
     @IBOutlet private var level5: UIButton!
+    @IBAction private func pressLevels(sender: UIButton) {
+        try! Realm().write {
+            self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].imporment = sender.tag
+        }
+        self.renewLevel(level: sender.tag)
+    }
     
     @IBOutlet private var groupInformation: UILabel!
+    
+    @IBOutlet private var setButton: UIButton!
+    @IBAction private func pressSetButton(sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SetViewController")
+        present(vc!, animated: true, completion: nil)
+    }
     
     @IBOutlet private var isMemorized: UIButton!
     @IBAction private func pressIsMemorized(sender: UIButton) {
@@ -318,9 +330,6 @@ class MainViewController: UIViewController {
         let vc = storyboard?.instantiateViewController(withIdentifier: "CardAddViewController")
         present(vc!, animated: true, completion: nil)
     }
-    @IBOutlet private var set: UIButton!
-    @IBAction private func pressSet(sender: UIButton) {
-    }
     
     private var showOption: String {
         return UserDefaults.standard.string(forKey: "CardShowOption")!
@@ -388,24 +397,20 @@ class MainViewController: UIViewController {
         }
         addCardConst()
         
-        let setConst = {
+        let setButtonConst = {
             () in
-            self.set.translatesAutoresizingMaskIntoConstraints = false
-            self.set.setTitle(NSLocalizedString("", comment: ""), for: .normal)
-            self.set.setTitleColor(UIColor.black, for: .normal)
+            self.setButton.translatesAutoresizingMaskIntoConstraints = false
+            self.setButton.setTitle("", for: .normal)
+            self.setButton.setImage(UIImage(named: "set.png"), for: .normal)
+            self.setButton.tintColor = UIColor.black
             
-            var topSize: CGFloat {
-                if UIScreen.main.bounds.width <= 320 && UIScreen.main.bounds.height <= 560 {
-                    return 35*0.83
-                } else {
-                    return 35
-                }
-            }
-            let top = NSLayoutConstraint(item: self.set, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: topSize)
-            let trailing = NSLayoutConstraint(item: self.set, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -GlobalInformation().top_menu_space)
-            NSLayoutConstraint.activate([top,trailing])
+            let top = NSLayoutConstraint(item: self.setButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: GlobalInformation().top_menu_top_size)
+            let width = NSLayoutConstraint(item: self.setButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let height = NSLayoutConstraint(item: self.setButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let trailing = NSLayoutConstraint(item: self.setButton, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -GlobalInformation().top_menu_space)
+            NSLayoutConstraint.activate([top,width,height,trailing])
         }
-        setConst()
+        setButtonConst()
         
         let levelsConst = {
             () in
@@ -421,7 +426,7 @@ class MainViewController: UIViewController {
             self.level4.setTitle("", for: .normal)
             self.level5.setTitle("", for: .normal)
             
-            let levelColor = UIColor.black
+            let levelColor = UIColor.darkGray
             self.level1.tintColor = levelColor
             self.level2.tintColor = levelColor
             self.level3.tintColor = levelColor

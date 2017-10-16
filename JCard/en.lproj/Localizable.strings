@@ -11,11 +11,13 @@
 
 
 // Text
+"Back" = "Back";
 "Yes" = "Yes";
 "No" = "No";
 "Cancel" = "Cancel";
 "Confirm" = "Confirm";
 "Word" = "Word";
+"WordManagement" = "Word Management";
 "Meaning" = "Meaning";
 "Example" = "Example";
 "Group" = "Group";
