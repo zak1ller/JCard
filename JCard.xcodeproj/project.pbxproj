@@ -12,6 +12,8 @@
 		1229CCDE1F949D25009E9ACF /* set.png in Resources */ = {isa = PBXBuildFile; fileRef = 1229CCDD1F949C87009E9ACF /* set.png */; };
 		1229CCE01F949E14009E9ACF /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1229CCDF1F949E14009E9ACF /* SetViewController.swift */; };
 		123256E61F92092A0000599A /* CardEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123256E51F92092A0000599A /* CardEditViewController.swift */; };
+		123384641F95D39700BC9FBD /* CardManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123384631F95D39700BC9FBD /* CardManagementViewController.swift */; };
+		123384661F95D59C00BC9FBD /* CardManagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123384651F95D59C00BC9FBD /* CardManagementCell.swift */; };
 		123559121F8890F600B3E86E /* CardAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123559111F8890F600B3E86E /* CardAddViewController.swift */; };
 		123559141F88935000B3E86E /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 123559131F88934700B3E86E /* left.png */; };
 		123559161F88A7E500B3E86E /* GroupAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123559151F88A7E500B3E86E /* GroupAddViewController.swift */; };
@@ -41,6 +43,8 @@
 		1229CCDD1F949C87009E9ACF /* set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set.png; sourceTree = "<group>"; };
 		1229CCDF1F949E14009E9ACF /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		123256E51F92092A0000599A /* CardEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditViewController.swift; sourceTree = "<group>"; };
+		123384631F95D39700BC9FBD /* CardManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManagementViewController.swift; sourceTree = "<group>"; };
+		123384651F95D59C00BC9FBD /* CardManagementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManagementCell.swift; sourceTree = "<group>"; };
 		123559111F8890F600B3E86E /* CardAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAddViewController.swift; sourceTree = "<group>"; };
 		123559131F88934700B3E86E /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
 		123559151F88A7E500B3E86E /* GroupAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAddViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 				123559151F88A7E500B3E86E /* GroupAddViewController.swift */,
 				123256E51F92092A0000599A /* CardEditViewController.swift */,
 				1229CCDF1F949E14009E9ACF /* SetViewController.swift */,
+				123384631F95D39700BC9FBD /* CardManagementViewController.swift */,
+				123384651F95D59C00BC9FBD /* CardManagementCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,11 +324,13 @@
 			files = (
 				127E16D21F860BF70096947D /* MainViewController.swift in Sources */,
 				1229CCE01F949E14009E9ACF /* SetViewController.swift in Sources */,
+				123384661F95D59C00BC9FBD /* CardManagementCell.swift in Sources */,
 				123256E61F92092A0000599A /* CardEditViewController.swift in Sources */,
 				123559121F8890F600B3E86E /* CardAddViewController.swift in Sources */,
 				124D8A861F86913C00ECA11C /* GlobalInformation.swift in Sources */,
 				127E16D01F860BF70096947D /* AppDelegate.swift in Sources */,
 				123559161F88A7E500B3E86E /* GroupAddViewController.swift in Sources */,
+				123384641F95D39700BC9FBD /* CardManagementViewController.swift in Sources */,
 				12AA7E571F868A1B0075C3AE /* CardInformation.swift in Sources */,
 				124EDC341F8769AF00B81A8E /* SokDesigner.swift in Sources */,
 				124D8A881F86941600ECA11C /* Minsu Librarys.swift in Sources */,

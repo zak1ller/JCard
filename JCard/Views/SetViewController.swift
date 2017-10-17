@@ -36,7 +36,7 @@ class SetViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath)!
         
         if cell.tag == 101 {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "")
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "CardManagementViewController")
             self.present(vc!, animated: true, completion: nil)
         } else if cell.tag == 102 {
             
