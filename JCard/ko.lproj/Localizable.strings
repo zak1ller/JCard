@@ -8,8 +8,11 @@
 "CreateGroup" = "그룹 만들기";
 "ChangeGroup" = "그룹 변경";
 "EditCard" = "이 카드 수정";
+"DeleteCard" = "이 카드 삭제";
+"SelectColor" = "색상 선택";
 
 // Text
+"AllWord" = "모든 단어";
 "Back" = "뒤로가기";
 "Yes" = "예";
 "No" = "아니오";
@@ -22,6 +25,7 @@
 "Group" = "그룹";
 "GroupName" = "그룹 이름";
 "NoGroup" = "그룹 없음";
+"GroupManagement" = "그룹 관리";
 "Save" = "저장";
 "SelectGroupColor" = "그룹 색상 선택";
 "Red" = "레드";
@@ -31,15 +35,22 @@
 "Gray" = "그레이";
 "CardLevel" = "카드 레벨";
 "Menu" = "메뉴";
+"GroupCount" = "그룹 수";
+"OwnedWords" = "소유 단어";
 
 // Alert
 "Message" = "메시지";
+
+// TextField
+"SearchWord" = "단어 검색";
+"SearchResult" = "검색 결과";
 
 // Card
 "PressCard" = "카드를 터치하여 카드를 뒤집으세요!";
 "PressCard2" = "카드를 터치하면 다음 카드로 넘어갑니다.";
 
 // Message
+"ShowGroup" = "화면에 표시할 그룹을 선택해주세요.";
 "TooShortWord" = "이 단어는 너무 짧습니다.";
 "TooLongWord" ="이 단어는 너무 깁니다.";
 "ThereAreNoGroupToChoose" = "선택할 수 있는 그룹이 없습니다.";

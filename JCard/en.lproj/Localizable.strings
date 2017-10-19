@@ -7,10 +7,13 @@
 "SelectGroup" = "Select Group";
 "CreateGroup" = "Create Group";
 "ChangeGroup" = "Change Group";
-"EditCard" = "Editing this card";
+"EditCard" = "Edit this card";
+"DeleteCard" = "Delete this card";
+"SelectColor" = "Select Color";
 
 
 // Text
+"AllWord" = "All Word";
 "Back" = "Back";
 "Yes" = "Yes";
 "No" = "No";
@@ -22,6 +25,7 @@
 "Example" = "Example";
 "Group" = "Group";
 "NoGroup" = "No Group";
+"GroupManagement" = "Group Management";
 "GroupName" = "Group Name";
 "Save" = "Save";
 "SelectGroupColor" = "Select Group Color";
@@ -32,15 +36,22 @@
 "Gray" = "Gray";
 "CardLevel" = "Card Level";
 "Menu" = "Menu";
+"GroupCount" = "Group Count";
+"OwnedWords" = "Owned Words";
 
 // Alert
 "Message" = "Message";
+
+// SearchField
+"SearchWord" = "Word Search";
+"SearchResult" = "Search Results";
 
 // Card
 "PressCard" = "Press the card to flip the card!";
 "PressCard2" = "Press the card to move to the next card!";
 
 // Message
+"ShowGroup" = "Please select a group to display on the screen.";
 "TooShortWord" = "This word is too short.";
 "TooLongWord" = "This word is too long.";
 "ThereAreNoGroupToChoose" = "There are no groups to choose from.";

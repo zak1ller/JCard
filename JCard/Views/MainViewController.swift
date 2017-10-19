@@ -294,10 +294,6 @@ class MainViewController: UIViewController {
     @IBOutlet private var cardBackground: UIView!
     @IBOutlet private var card: UIButton!
     @IBAction private func pressCard(sender: UIButton) {
-        UIView.animate(withDuration: 0.5, animations: {
-            sender.alpha = 0.25
-            sender.alpha = 1
-        })
         if cardStatus == false {
             currentIndex = currentIndex + 1
         }
