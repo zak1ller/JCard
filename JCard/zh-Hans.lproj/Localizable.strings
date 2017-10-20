@@ -10,6 +10,9 @@
 "EditCard" = "编辑此卡";
 "DeleteCard" = "删除此卡";
 "SelectColor" = "选择颜色";
+"DeleteAll" = "删除所有卡";
+"DeleteAllGroup" = "删除所有组";
+"DeleteThisGroup" = "删除此组";
 
 // Text
 "AllWord" = "所有的话";
@@ -26,6 +29,7 @@
 "GroupName" = "组名";
 "NoGroup" = "没有组";
 "GroupManagement" = "集团管理";
+"ChangeGroupName" = "更改组名称";
 "Save" = "保存";
 "SelectGroupColor" = "选择组颜色";
 "Red" = "红";
@@ -50,6 +54,7 @@
 "PressCard2" = "按卡移动到下一张卡！";
 
 // Message
+"EnterGroupName" = "请输入意愿更改组名称。";
 "ShowGroup" = "请选择一个组显示在屏幕上。";
 "TooShortWord" = "这个字太短了。";
 "TooLongWord" ="这个字太长了";
@@ -65,3 +70,7 @@
 "DoYouWantDelete" = "你想删除这张卡吗？";
 "ChangedGroup" = "组更改。";
 "ChangedCard" = "卡改了";
+"DeleteAllCard" = "你确定要删除所有的卡吗？\n备份到服务器的卡不会被删除。";
+"DeleteAllTheGroup" = "您确定要删除所有组吗？";
+"DeleteTheGroup" = "您确定要删除此群组吗？";
+"ChangedGroupName" = "该组名称已更改。";

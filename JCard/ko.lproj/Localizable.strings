@@ -7,9 +7,13 @@
 "SelectGroup" = "그룹 선택";
 "CreateGroup" = "그룹 만들기";
 "ChangeGroup" = "그룹 변경";
+"SelectColor" = "색상 선택";
+"DeleteThisGroup" = "이 그룹 삭제";
+"DeleteAllGroup" = "모든 그룹 삭제";
 "EditCard" = "이 카드 수정";
 "DeleteCard" = "이 카드 삭제";
-"SelectColor" = "색상 선택";
+"DeleteAll" = "모든 카드 삭제";
+
 
 // Text
 "AllWord" = "모든 단어";
@@ -26,6 +30,7 @@
 "GroupName" = "그룹 이름";
 "NoGroup" = "그룹 없음";
 "GroupManagement" = "그룹 관리";
+"ChangeGroupName" = "그룹 이름 변경";
 "Save" = "저장";
 "SelectGroupColor" = "그룹 색상 선택";
 "Red" = "레드";
@@ -50,6 +55,7 @@
 "PressCard2" = "카드를 터치하면 다음 카드로 넘어갑니다.";
 
 // Message
+"EnterGroupName" = "변경할 그룹 이름을 입력해주세요.";
 "ShowGroup" = "화면에 표시할 그룹을 선택해주세요.";
 "TooShortWord" = "이 단어는 너무 짧습니다.";
 "TooLongWord" ="이 단어는 너무 깁니다.";
@@ -65,3 +71,7 @@
 "DoYouWantDelete" = "이 카드를 삭제하시겠습니까?";
 "ChangedGroup" = "그룹이 변경되었습니다.";
 "ChangedCard" = "카드가 변경되었습니다.";
+"DeleteAllCard" = "모든 카드를 삭제하시겠습니까?\n서버에 백업된 카드는 삭제되지 않습니다.";
+"DeleteAllTheGroup" = "모든 그룹을 삭제하시겠습니까?";
+"DeleteTheGroup" = "이 그룹을 삭제하시겠습니까?";
+"ChangedGroupName" = "그룹 이름이 변경되었습니다.";

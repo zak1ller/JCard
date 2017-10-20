@@ -677,26 +677,28 @@ class MainViewController: UIViewController {
         let groupInformationConst = {
             () in
             self.groupInformation.translatesAutoresizingMaskIntoConstraints = false
-            if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].isGroup == true {
-                let gg = try! Realm().objects(group.self).filter("number = '\(self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_number!)'")
-                self.groupInformation.text = "[\(gg[0].name!)]"
-                var groupColor: UIColor {
-                    if gg[0].color == "Red" {
-                        return GlobalInformation().card_color_red
-                    } else if gg[0].color == "Green" {
-                        return GlobalInformation().card_color_green
-                    } else if gg[0].color == "Blue" {
-                        return GlobalInformation().card_color_blue
-                    } else if gg[0].color == "Black" {
-                        return GlobalInformation().card_color_black
-                    } else {
-                        return GlobalInformation().card_color_gray
+            if self.cardDatas.count != 0 {
+                if self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].isGroup == true {
+                    let gg = try! Realm().objects(group.self).filter("number = '\(self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0].group_number!)'")
+                    self.groupInformation.text = "[\(gg[0].name!)]"
+                    var groupColor: UIColor {
+                        if gg[0].color == "Red" {
+                            return GlobalInformation().card_color_red
+                        } else if gg[0].color == "Green" {
+                            return GlobalInformation().card_color_green
+                        } else if gg[0].color == "Blue" {
+                            return GlobalInformation().card_color_blue
+                        } else if gg[0].color == "Black" {
+                            return GlobalInformation().card_color_black
+                        } else {
+                            return GlobalInformation().card_color_gray
+                        }
                     }
+                    self.groupInformation.textColor = groupColor
+                } else {
+                    self.groupInformation.textColor = UIColor.gray
+                    self.groupInformation.text = "[\(NSLocalizedString("NoGroup", comment: ""))]"
                 }
-                self.groupInformation.textColor = groupColor
-            } else {
-                self.groupInformation.textColor = UIColor.gray
-                self.groupInformation.text = "[\(NSLocalizedString("NoGroup", comment: ""))]"
             }
             
             var groupFont: CGFloat {

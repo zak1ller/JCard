@@ -10,6 +10,9 @@
 "EditCard" = "このカードを編集する";
 "DeleteCard" = "このカードを削除する";
 "SelectColor" = "カラーを選択";
+"DeleteAll" = "すべてのカードを削除";
+"DeleteAllGroup" = "すべてのグループを削除";
+"DeleteThisGroup" = "このグループを削除する";
 
 // Text
 "AllWord" = "すべての言葉";
@@ -26,6 +29,7 @@
 "NoGroup" = "グループなし";
 "GroupName" = "グループ名";
 "GroupManagement" = "グループ管理";
+"ChangeGroupName" = "グループ名を変更する";
 "Save" = "セーブ";
 "SelectGroupColor" = "グループカラーを選択";
 "Red" = "赤";
@@ -50,6 +54,7 @@
 "PressCard2" = "次のカードに移動するには、カードを押してください！";
 
 // Message
+"EnterGroupName" = "意志を変更するグループ名を入力してください。";
 "ShowGroup" = "画面に表示するグループを選択してください。";
 "TooShortWord" = "この言葉は短すぎます。";
 "TooLongWord" ="この言葉は長すぎます。";
@@ -65,3 +70,7 @@
 "DoYouWantDelete" = "このカードを削除しますか？";
 "ChangedGroup" = "グループが変更されました。";
 "ChangedCard" = "カードが変更されました。";
+"DeleteAllCard" = "すべてのカードを削除してもよろしいですか？\nサーバーにバックアップされたカードは、削除されません。";
+"DeleteAllTheGroup" = "すべてのグループを削除してもよろしいですか？";
+"DeleteTheGroup" = "このグループを削除してもよろしいですか？";
+"ChangedGroupName" = "このグループ名が変更されました。";

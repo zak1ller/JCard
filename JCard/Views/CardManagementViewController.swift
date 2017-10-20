@@ -32,10 +32,42 @@ class CardManagementViewController: UIViewController, UITableViewDelegate, UITab
         bannerConst()
     }
     override func viewWillAppear(_ animated: Bool) {
+        data = try! Realm().objects(cards.self)
+        titleButton.setTitle(NSLocalizedString("AllWord", comment: "")+" \(self.data.count)", for: .normal)
+        tableView.reloadData()
     }
     var data = try! Realm().objects(cards.self)
     var bannerView: GADBannerView!
 
+    @IBOutlet private weak var moreButton: UIButton!
+    @IBAction private func pressMoreButton(sender: UIButton) {
+        let alert = UIAlertController(title: NSLocalizedString("Menu", comment: ""), message: "", preferredStyle: .actionSheet)
+        alert.view.tintColor = UIColor.black
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("NewCard", comment: ""), style: .default, handler: {
+            (_) in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "CardAddViewController")
+            self.present(vc!, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("DeleteAll", comment: ""), style: .destructive, handler: {
+            (_) in
+            let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("DeleteAllCard", comment: ""), preferredStyle: .alert)
+            alert.view.tintColor = UIColor.black
+            alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: {
+                (_) in
+                try! Realm().write {
+                    try! Realm().delete(try! Realm().objects(cards.self))
+                }
+                self.data = try! Realm().objects(cards.self)
+                self.titleButton.setTitle(NSLocalizedString("AllWord", comment: "")+" \(self.data.count)", for: .normal)
+                self.tableView.reloadData()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBOutlet private weak var searchField: UISearchBar!
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBar.showsCancelButton = true
@@ -262,5 +294,20 @@ class CardManagementViewController: UIViewController, UITableViewDelegate, UITab
             NSLayoutConstraint.activate([top,leading,trailing])
         }
         searchBarConst()
+        
+        let moreButtonConst = {
+            () in
+            self.moreButton.translatesAutoresizingMaskIntoConstraints = false
+            self.moreButton.tintColor = UIColor.black
+            self.moreButton.setTitle("", for: .normal)
+            self.moreButton.setImage(UIImage(named: "more.png"), for: .normal)
+            
+            let width = NSLayoutConstraint(item: self.moreButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let height = NSLayoutConstraint(item: self.moreButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let top = NSLayoutConstraint(item: self.moreButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: GlobalInformation().top_menu_top_size)
+            let trailing = NSLayoutConstraint(item: self.moreButton, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -GlobalInformation().top_menu_space)
+            NSLayoutConstraint.activate([width,height,trailing,top])
+        }
+        moreButtonConst()
     }
 }

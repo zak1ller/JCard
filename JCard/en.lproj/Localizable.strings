@@ -10,7 +10,9 @@
 "EditCard" = "Edit this card";
 "DeleteCard" = "Delete this card";
 "SelectColor" = "Select Color";
-
+"DeleteAll" = "Delete All Card";
+"DeleteAllGroup" = "Delete All Group";
+"DeleteThisGroup" = "Delete This Group";
 
 // Text
 "AllWord" = "All Word";
@@ -27,6 +29,7 @@
 "NoGroup" = "No Group";
 "GroupManagement" = "Group Management";
 "GroupName" = "Group Name";
+"ChangeGroupName" = "Change Group Name";
 "Save" = "Save";
 "SelectGroupColor" = "Select Group Color";
 "Red" = "Red";
@@ -51,6 +54,7 @@
 "PressCard2" = "Press the card to move to the next card!";
 
 // Message
+"EnterGroupName" = "Please enter a will change group name.";
 "ShowGroup" = "Please select a group to display on the screen.";
 "TooShortWord" = "This word is too short.";
 "TooLongWord" = "This word is too long.";
@@ -66,3 +70,7 @@
 "DoYouWantDelete" = "Do you wanna delete this card?";
 "ChangedGroup" = "Group changed.";
 "ChangedCard" = "Card changed.";
+"DeleteAllCard" = "Are you sure you want to delete all the cards?\nCards backed up to the server will not be deleted.";
+"DeleteAllTheGroup" = "Are you sure you want to delete all the groups?";
+"DeleteTheGroup" = "Are you sure you want to delete this group?";
+"ChangedGroupName" = "This group name was changed.";

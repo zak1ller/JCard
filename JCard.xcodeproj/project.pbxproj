@@ -35,6 +35,7 @@
 		128D47BA1F90BBCF00F62FC6 /* completed.png in Resources */ = {isa = PBXBuildFile; fileRef = 128D47B91F90BBC800F62FC6 /* completed.png */; };
 		128D47BC1F90BC5F00F62FC6 /* uncompleted.png in Resources */ = {isa = PBXBuildFile; fileRef = 128D47BB1F90BC5B00F62FC6 /* uncompleted.png */; };
 		12AA7E571F868A1B0075C3AE /* CardInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AA7E561F868A1B0075C3AE /* CardInformation.swift */; };
+		12AF57C11F99E2050043EAA1 /* GroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AF57C01F99E2050043EAA1 /* GroupEditViewController.swift */; };
 		12E7720D1F87EEBA006E7BCB /* new.png in Resources */ = {isa = PBXBuildFile; fileRef = 12E7720C1F87EE72006E7BCB /* new.png */; };
 		12E7720E1F87EEE2006E7BCB /* UserDefaultKeys.strings in Resources */ = {isa = PBXBuildFile; fileRef = 124D8A831F86903300ECA11C /* UserDefaultKeys.strings */; };
 		2EDD31CD0BFFC911DBFB34F9 /* Pods_JCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0FF5767D037602283B8597 /* Pods_JCard.framework */; };
@@ -78,6 +79,7 @@
 		128D47B91F90BBC800F62FC6 /* completed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = completed.png; sourceTree = "<group>"; };
 		128D47BB1F90BC5B00F62FC6 /* uncompleted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncompleted.png; sourceTree = "<group>"; };
 		12AA7E561F868A1B0075C3AE /* CardInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInformation.swift; sourceTree = "<group>"; };
+		12AF57C01F99E2050043EAA1 /* GroupEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupEditViewController.swift; sourceTree = "<group>"; };
 		12E7720C1F87EE72006E7BCB /* new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new.png; sourceTree = "<group>"; };
 		1B0FF5767D037602283B8597 /* Pods_JCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7286A1C7A0CFF5ACAD2F6706 /* Pods-JCard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCard.release.xcconfig"; path = "Pods/Target Support Files/Pods-JCard/Pods-JCard.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,12 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				127E16D11F860BF70096947D /* MainViewController.swift */,
-				123559111F8890F600B3E86E /* CardAddViewController.swift */,
-				123559151F88A7E500B3E86E /* GroupAddViewController.swift */,
-				123256E51F92092A0000599A /* CardEditViewController.swift */,
 				1229CCDF1F949E14009E9ACF /* SetViewController.swift */,
+				123559111F8890F600B3E86E /* CardAddViewController.swift */,
+				123256E51F92092A0000599A /* CardEditViewController.swift */,
 				123384631F95D39700BC9FBD /* CardManagementViewController.swift */,
 				123384651F95D59C00BC9FBD /* CardManagementCell.swift */,
+				123559151F88A7E500B3E86E /* GroupAddViewController.swift */,
+				12AF57C01F99E2050043EAA1 /* GroupEditViewController.swift */,
 				122713FC1F9875FE009CC2BF /* GroupManagementViewController.swift */,
 				122713FE1F98785D009CC2BF /* GroupManagementCell.swift */,
 			);
@@ -335,6 +338,7 @@
 				127E16D21F860BF70096947D /* MainViewController.swift in Sources */,
 				1229CCE01F949E14009E9ACF /* SetViewController.swift in Sources */,
 				123384661F95D59C00BC9FBD /* CardManagementCell.swift in Sources */,
+				12AF57C11F99E2050043EAA1 /* GroupEditViewController.swift in Sources */,
 				123256E61F92092A0000599A /* CardEditViewController.swift in Sources */,
 				123559121F8890F600B3E86E /* CardAddViewController.swift in Sources */,
 				124D8A861F86913C00ECA11C /* GlobalInformation.swift in Sources */,

@@ -18,11 +18,53 @@ class GroupManagementViewController: UIViewController, UITableViewDelegate, UITa
         tableView.delegate = self
         tableView.dataSource = self
     }
+    override func viewWillAppear(_ animated: Bool) {
+        data = try! Realm().objects(group.self)
+        tableView.reloadData()
+    }
     @IBOutlet private weak var backButton: UIButton!
     @IBAction private func pressBackButton(sender: UIButton) {
         view.endEditing(true)
         dismiss(animated: true, completion: nil)
     }
+    @IBOutlet private weak var moreButton: UIButton!
+    @IBAction private func pressMoreButton(sender: UIButton) {
+        let alert = UIAlertController(title: NSLocalizedString("Menu", comment: ""), message: "", preferredStyle: .actionSheet)
+        alert.view.tintColor = UIColor.black
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("CreateGroup", comment: ""), style: .default, handler: {
+            (_) in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "GroupAddViewController")
+            self.present(vc!, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("DeleteAllGroup", comment: ""), style: .destructive, handler: {
+            (_) in
+            let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("DeleteAllTheGroup", comment: ""), preferredStyle: .alert)
+            alert.view.tintColor = UIColor.black
+            alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: {
+                (_) in
+                try! Realm().write {
+                    try! Realm().delete(try! Realm().objects(group.self))
+                }
+                self.data = try! Realm().objects(group.self)
+                self.tableView.reloadData()
+                self.titleLabel.text = NSLocalizedString("GroupCount", comment: "")+" \(self.data.count)"
+                let words = try! Realm().objects(cards.self)
+                var index = 0
+                while(words.count > index) {
+                    try! Realm().write {
+                        words[index].isGroup = false
+                        words[index].group_number = nil
+                    }
+                    index = index + 1
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
     private func changeColor(button: UIButton,color: String) {
         if color == "Red" {
             button.tintColor = GlobalInformation().card_color_red
@@ -96,6 +138,43 @@ class GroupManagementViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet private weak var tableView: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! GroupManagementCell
+        let thisData = try! Realm().objects(group.self).filter("number = '\(cell.group_color.accessibilityValue!)'")
+        
+        let alert = UIAlertController(title: NSLocalizedString("Menu", comment: ""), message: thisData[0].name!, preferredStyle: .actionSheet)
+        alert.view.tintColor = UIColor.black
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ChangeGroupName", comment: ""), style: .default, handler: {
+            (_) in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "GroupEditViewController") as! GroupEditViewController
+            vc.thisData = thisData
+            self.present(vc, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("DeleteThisGroup", comment: ""), style: .destructive, handler: {
+            (_) in
+            let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("DeleteTheGroup", comment: ""), preferredStyle: .alert)
+            alert.view.tintColor = UIColor.black
+            alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: {
+                (_) in
+                try! Realm().write {
+                    try! Realm().delete(try! Realm().objects(group.self).filter("number = '\(cell.group_color.accessibilityValue!)'"))
+                }
+                let words = try! Realm().objects(cards.self).filter("group_number = '\(cell.group_color.accessibilityValue!)'")
+                var index = 0
+                while(words.count > index) {
+                    words[index].isGroup = false
+                    words[index].group_number = nil
+                    index = index+1
+                }
+                self.data = try! Realm().objects(group.self)
+                self.tableView.reloadData()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupManagementCell", for: indexPath) as! GroupManagementCell
@@ -177,5 +256,20 @@ class GroupManagementViewController: UIViewController, UITableViewDelegate, UITa
             NSLayoutConstraint.activate([height,top,centerX])
         }
         titleLabelConst()
+        
+        let moreButtonConst = {
+            () in
+            self.moreButton.translatesAutoresizingMaskIntoConstraints = false
+            self.moreButton.tintColor = UIColor.black
+            self.moreButton.setTitle("", for: .normal)
+            self.moreButton.setImage(UIImage(named: "more.png"), for: .normal)
+            
+            let width = NSLayoutConstraint(item: self.moreButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let height = NSLayoutConstraint(item: self.moreButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
+            let top = NSLayoutConstraint(item: self.moreButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: GlobalInformation().top_menu_top_size)
+            let trailing = NSLayoutConstraint(item: self.moreButton, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -GlobalInformation().top_menu_space)
+            NSLayoutConstraint.activate([width,height,trailing,top])
+        }
+        moreButtonConst()
     }
 }
