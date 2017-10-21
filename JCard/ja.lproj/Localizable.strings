@@ -1,7 +1,4 @@
-// Card
 "ThereAreNotCard" = "カードはありません。";
-
-// Menu
 "NewCard" = "新しいカード";
 "Setting" = "設定";
 "SelectGroup" = "グループを選択";
@@ -13,8 +10,6 @@
 "DeleteAll" = "すべてのカードを削除";
 "DeleteAllGroup" = "すべてのグループを削除";
 "DeleteThisGroup" = "このグループを削除する";
-
-// Text
 "AllWord" = "すべての言葉";
 "Back" = "戻る";
 "Yes" = "はい";
@@ -41,19 +36,11 @@
 "Menu" = "メニュー";
 "GroupCount" = "グループカウント";
 "OwnedWords" = "予約語";
-
-// Alert
 "Message" = "メッセージ";
-
-// TextField
 "SearchWord" = "ワード検索";
 "SearchResult" = "の検索結果";
-
-// Card
 "PressCard" = "カードを押して、カードを反転させてください！";
 "PressCard2" = "次のカードに移動するには、カードを押してください！";
-
-// Message
 "EnterGroupName" = "意志を変更するグループ名を入力してください。";
 "ShowGroup" = "画面に表示するグループを選択してください。";
 "TooShortWord" = "この言葉は短すぎます。";
@@ -74,3 +61,6 @@
 "DeleteAllTheGroup" = "すべてのグループを削除してもよろしいですか？";
 "DeleteTheGroup" = "このグループを削除してもよろしいですか？";
 "ChangedGroupName" = "このグループ名が変更されました。";
+"DeleteAllInGroup" = "グループ内のすべてのカードを削除";
+"ThereIsNoCardWillDelete" = "削除されるカードはありません。";
+"AreYouDeleteAllCardsInTheGroup" = "グループ内のすべてのカードを削除してもよろしいですか？";

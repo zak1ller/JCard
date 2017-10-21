@@ -13,10 +13,22 @@ import RealmSwift
 
 class GroupManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var data = try! Realm().objects(group.self)
+    var bannerView: GADBannerView!
     override func viewDidLoad() {
         setLayout()
         tableView.delegate = self
         tableView.dataSource = self
+        let bannerConst = {
+            () in
+            self.bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner, origin: CGPoint(x: 0, y: self.view.frame.size.height-58))
+            self.bannerView.rootViewController = self
+            self.bannerView.adUnitID = "ca-app-pub-2853823596405573/9754638812"
+            
+            self.bannerView.frame = CGRect(x: -2, y: self.view.frame.size.height, width: self.view.frame.size.width, height: 58)
+            self.view.addSubview(self.bannerView)
+            self.bannerView.load(GADRequest())
+        }
+        bannerConst()
     }
     override func viewWillAppear(_ animated: Bool) {
         data = try! Realm().objects(group.self)
@@ -151,6 +163,30 @@ class GroupManagementViewController: UIViewController, UITableViewDelegate, UITa
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "GroupEditViewController") as! GroupEditViewController
             vc.thisData = thisData
             self.present(vc, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("DeleteAllInGroup", comment: ""), style: .destructive, handler: {
+            (_) in
+            let cardDatas = try! Realm().objects(cards.self).filter("group_number = '\(cell.group_color.accessibilityValue!)'")
+            if cardDatas.count == 0 {
+                let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("ThereIsNoCardWillDelete", comment: ""), preferredStyle: .alert)
+                self.present(alert, animated: true, completion: {
+                    sleep(1)
+                    self.dismiss(animated: true, completion: nil)
+                })
+            } else {
+                let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("AreYouDeleteAllCardsInTheGroup", comment: ""), preferredStyle: .alert)
+                alert.view.tintColor = UIColor.black
+                alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: {
+                    (_) in
+                    try! Realm().write {
+                        try! Realm().delete(cardDatas)
+                    }
+                    self.data = try! Realm().objects(group.self)
+                    self.tableView.reloadData()
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("DeleteThisGroup", comment: ""), style: .destructive, handler: {
             (_) in

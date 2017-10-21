@@ -1,7 +1,4 @@
-// Card
 "ThereAreNotCard" = "没有卡片。";
-
-// Menu
 "NewCard" = "新卡";
 "Setting" = "设置";
 "SelectGroup" = "选择组";
@@ -13,8 +10,6 @@
 "DeleteAll" = "删除所有卡";
 "DeleteAllGroup" = "删除所有组";
 "DeleteThisGroup" = "删除此组";
-
-// Text
 "AllWord" = "所有的话";
 "Back" = "回去";
 "Yes" = "是";
@@ -41,19 +36,11 @@
 "Menu" = "菜单";
 "GroupCount" = "组数";
 "OwnedWords" = "所有词";
-
-// Alert
 "Message" = "信息";
-
-// TextField
 "SearchWord" = "词搜索";
 "SearchResult" = "搜索结果";
-
-// Card
 "PressCard" = "按卡片翻转卡片！";
 "PressCard2" = "按卡移动到下一张卡！";
-
-// Message
 "EnterGroupName" = "请输入意愿更改组名称。";
 "ShowGroup" = "请选择一个组显示在屏幕上。";
 "TooShortWord" = "这个字太短了。";
@@ -74,3 +61,6 @@
 "DeleteAllTheGroup" = "您确定要删除所有组吗？";
 "DeleteTheGroup" = "您确定要删除此群组吗？";
 "ChangedGroupName" = "该组名称已更改。";
+"DeleteAllInGroup" = "删除组中的所有卡";
+"ThereIsNoCardWillDelete" = "没有卡会删除。";
+"AreYouDeleteAllCardsInTheGroup" = "你确定要删除组中的所有卡吗？";

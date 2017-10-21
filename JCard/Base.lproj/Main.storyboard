@@ -102,13 +102,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECs-6r-a3u">
-                                <rect key="frame" x="256" y="560" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="pressCardDeleteButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vf4-Tc-Ujl"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6m-Qf-Sfe">
                                 <rect key="frame" x="98" y="446" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -152,7 +145,6 @@
                         <outlet property="addCard" destination="3Va-Ld-9Df" id="PBJ-eH-zi5"/>
                         <outlet property="card" destination="pnw-0v-J0f" id="eyp-6E-mjL"/>
                         <outlet property="cardBackground" destination="fAD-41-UlG" id="CNv-Ki-Z7y"/>
-                        <outlet property="cardDeleteButton" destination="ECs-6r-a3u" id="z8r-Pp-0Mt"/>
                         <outlet property="extraLabel" destination="zGJ-8H-hFB" id="cEA-Fq-1vz"/>
                         <outlet property="groupInformation" destination="jXS-0u-Hei" id="Qsd-eM-n7d"/>
                         <outlet property="isMemorized" destination="J1N-V5-Ual" id="E8p-wg-Pwk"/>
@@ -400,21 +392,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="pressReturnKeyWithSender:" destination="jYG-rC-S96" eventType="primaryActionTriggered" id="xbJ-UV-Pfh"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AaH-QJ-dbv">
                                 <rect key="frame" x="119" y="166" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qfx-si-jyh">
-                                <rect key="frame" x="119" y="244" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="pressReturnKeyWithSender:" destination="jYG-rC-S96" eventType="primaryActionTriggered" id="cjZ-wh-j5d"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NhO-i1-kjZ">
                                 <rect key="frame" x="144" y="349" width="46" height="30"/>
@@ -424,13 +415,21 @@
                                     <action selector="pressSaveButtonWithSender:" destination="jYG-rC-S96" eventType="touchUpInside" id="zQg-QL-tZ0"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Oms-Ct-n2H">
+                                <rect key="frame" x="52" y="414" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="OPz-45-gXo"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="T5b-7g-YcX" id="UCb-S1-MWD"/>
-                        <outlet property="exampleField" destination="Qfx-si-jyh" id="q9m-hb-YeJ"/>
+                        <outlet property="exampleTextView" destination="Oms-Ct-n2H" id="aza-4X-LbM"/>
                         <outlet property="meaningField" destination="AaH-QJ-dbv" id="31m-er-caY"/>
                         <outlet property="saveButton" destination="NhO-i1-kjZ" id="08E-Y0-smE"/>
                         <outlet property="wordField" destination="3wg-5l-Rt7" id="jkI-QI-b6d"/>

@@ -1,7 +1,4 @@
-// Card
 "ThereAreNotCard" = "There are not cards.";
-
-// Menu
 "NewCard" = "New Card";
 "Setting" = "Setting";
 "SelectGroup" = "Select Group";
@@ -13,8 +10,6 @@
 "DeleteAll" = "Delete All Card";
 "DeleteAllGroup" = "Delete All Group";
 "DeleteThisGroup" = "Delete This Group";
-
-// Text
 "AllWord" = "All Word";
 "Back" = "Back";
 "Yes" = "Yes";
@@ -41,19 +36,11 @@
 "Menu" = "Menu";
 "GroupCount" = "Group Count";
 "OwnedWords" = "Owned Words";
-
-// Alert
 "Message" = "Message";
-
-// SearchField
 "SearchWord" = "Word Search";
 "SearchResult" = "Search Results";
-
-// Card
 "PressCard" = "Press the card to flip the card!";
 "PressCard2" = "Press the card to move to the next card!";
-
-// Message
 "EnterGroupName" = "Please enter a will change group name.";
 "ShowGroup" = "Please select a group to display on the screen.";
 "TooShortWord" = "This word is too short.";
@@ -74,3 +61,6 @@
 "DeleteAllTheGroup" = "Are you sure you want to delete all the groups?";
 "DeleteTheGroup" = "Are you sure you want to delete this group?";
 "ChangedGroupName" = "This group name was changed.";
+"DeleteAllInGroup" = "Delete all cards in the group";
+"ThereIsNoCardWillDelete" = "There are no cards will delete.";
+"AreYouDeleteAllCardsInTheGroup" = "Are you sure you want to delete all the cards in the group?";

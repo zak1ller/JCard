@@ -69,6 +69,9 @@ class CardManagementViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBOutlet private weak var searchField: UISearchBar!
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBar.showsCancelButton = true
         data = try! Realm().objects(cards.self).filter("word CONTAINS '\(searchText)' OR meaning CONTAINS '\(searchText)'")
@@ -130,6 +133,12 @@ class CardManagementViewController: UIViewController, UITableViewDelegate, UITab
         let alert = UIAlertController(title: NSLocalizedString("Menu", comment: ""), message: data.word!, preferredStyle: .actionSheet)
         alert.view.tintColor = UIColor.black
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("EditCard", comment: ""), style: .default, handler: {
+            (_) in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "CardEditViewController") as! CardEditViewController
+            vc.number = data.number
+            self.present(vc, animated: true, completion: nil)
+        }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("ChangeGroup", comment: ""), style: .default, handler: {
             (_) in
             let alert = UIAlertController(title: NSLocalizedString("Menu", comment: ""), message: NSLocalizedString("ChangeGroup", comment: ""), preferredStyle: .actionSheet)

@@ -1,7 +1,4 @@
-// Card
 "ThereAreNotCard" = "카드가 없습니다.";
-
-// Menu
 "NewCard" = "새 카드";
 "Setting" = "설정";
 "SelectGroup" = "그룹 선택";
@@ -13,9 +10,6 @@
 "EditCard" = "이 카드 수정";
 "DeleteCard" = "이 카드 삭제";
 "DeleteAll" = "모든 카드 삭제";
-
-
-// Text
 "AllWord" = "모든 단어";
 "Back" = "뒤로가기";
 "Yes" = "예";
@@ -42,19 +36,11 @@
 "Menu" = "메뉴";
 "GroupCount" = "그룹 수";
 "OwnedWords" = "소유 단어";
-
-// Alert
 "Message" = "메시지";
-
-// TextField
 "SearchWord" = "단어 검색";
 "SearchResult" = "검색 결과";
-
-// Card
 "PressCard" = "카드를 터치하여 카드를 뒤집으세요!";
 "PressCard2" = "카드를 터치하면 다음 카드로 넘어갑니다.";
-
-// Message
 "EnterGroupName" = "변경할 그룹 이름을 입력해주세요.";
 "ShowGroup" = "화면에 표시할 그룹을 선택해주세요.";
 "TooShortWord" = "이 단어는 너무 짧습니다.";
@@ -75,3 +61,6 @@
 "DeleteAllTheGroup" = "모든 그룹을 삭제하시겠습니까?";
 "DeleteTheGroup" = "이 그룹을 삭제하시겠습니까?";
 "ChangedGroupName" = "그룹 이름이 변경되었습니다.";
+"DeleteAllInGroup" = "그룹 내 모든 카드 삭제";
+"ThereIsNoCardWillDelete" = "삭제할 카드가 없습니다.";
+"AreYouDeleteAllCardsInTheGroup" = "그룹 내의 모든 카드를 삭제하시겠습니까?";

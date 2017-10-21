@@ -156,6 +156,22 @@ class MainViewController: UIViewController {
             }
             self.present(alert, animated: true, completion: nil)
         }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("DeleteCard", comment: ""), style: .destructive, handler: {
+            (_) in
+            let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("DoYouWantDelete", comment: ""), preferredStyle: .alert)
+            alert.view.tintColor = UIColor.black
+            alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: {
+                (_) in
+                try! Realm().write {
+                    try! Realm().delete(self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0])
+                }
+                self.reCard()
+                self.cardStatus = false
+                self.pressCard(sender: self.card)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }))
         present(alert, animated: true, completion: nil)
     }
     
@@ -177,26 +193,8 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBOutlet private var cardDeleteButton: UIButton!
-    @IBAction private func pressCardDeleteButton(sender: UIButton) {
-        let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("DoYouWantDelete", comment: ""), preferredStyle: .alert)
-        alert.view.tintColor = UIColor.black
-        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: {
-            (_) in
-            try! Realm().write {
-                try! Realm().delete(self.cardDatas.filter("number = '\(self.cardNumbers[self.currentIndex])'")[0])
-            }
-            self.reCard()
-            self.cardStatus = false
-            self.pressCard(sender: self.card)
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-    
     private var cardStatus = true {
         willSet(new) {
-            self.cardDeleteButton.isHidden = false
             if new == false {
                 self.wordLabel.isHidden = true
                 self.groupInformation.isHidden = false
@@ -301,7 +299,6 @@ class MainViewController: UIViewController {
             wordLabel.isHidden = true
             meaningLabel.isHidden = true
             extraLabel.isHidden = true
-            cardDeleteButton.isHidden = true
             level1.isHidden = true
             level2.isHidden = true
             level3.isHidden = true
@@ -422,7 +419,7 @@ class MainViewController: UIViewController {
             self.level4.setTitle("", for: .normal)
             self.level5.setTitle("", for: .normal)
             
-            let levelColor = UIColor.darkGray
+            let levelColor = UIColor.black
             self.level1.tintColor = levelColor
             self.level2.tintColor = levelColor
             self.level3.tintColor = levelColor
@@ -589,26 +586,6 @@ class MainViewController: UIViewController {
         }
         extraConst()
         
-        let cardDeleteConst = {
-            () in
-            self.cardDeleteButton.translatesAutoresizingMaskIntoConstraints = false
-            self.cardDeleteButton.setTitle("", for: .normal)
-            self.cardDeleteButton.tintColor = UIColor.black
-            self.cardDeleteButton.setImage(UIImage(named: "delete.png"), for: .normal)
-            if self.cardDatas.count == 0 {
-                self.cardDeleteButton.isHidden = true
-            } else {
-                self.cardDeleteButton.isHidden = false
-            }
-            
-            let width = NSLayoutConstraint(item: self.cardDeleteButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
-            let height = NSLayoutConstraint(item: self.cardDeleteButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
-            let bottom = NSLayoutConstraint(item: self.cardDeleteButton, attribute: .bottom, relatedBy: .equal, toItem: self.cardBackground, attribute: .bottom, multiplier: 1, constant: -20)
-            let trailing = NSLayoutConstraint(item: self.cardDeleteButton, attribute: .trailing, relatedBy: .equal, toItem: self.cardBackground, attribute: .trailing, multiplier: 1, constant: -20)
-            NSLayoutConstraint.activate([width,height,bottom,trailing])
-        }
-        cardDeleteConst()
-        
         let reloadButtonConst = {
             () in
             self.reloadButton.translatesAutoresizingMaskIntoConstraints = false
@@ -643,9 +620,9 @@ class MainViewController: UIViewController {
             
             let width = NSLayoutConstraint(item: self.moreButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
             let height = NSLayoutConstraint(item: self.moreButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: GlobalInformation().top_menu_size)
-            let centerX = NSLayoutConstraint(item: self.moreButton, attribute: .centerX, relatedBy: .equal, toItem: self.cardBackground, attribute: .centerX, multiplier: 1, constant: 0)
+            let trailing = NSLayoutConstraint(item: self.moreButton, attribute: .trailing, relatedBy: .equal, toItem: self.cardBackground, attribute: .trailing, multiplier: 1, constant: -20)
             let bottom = NSLayoutConstraint(item: self.moreButton, attribute: .bottom, relatedBy: .equal, toItem: self.cardBackground, attribute: .bottom, multiplier: 1, constant: -20)
-            NSLayoutConstraint.activate([width,height,centerX,bottom])
+            NSLayoutConstraint.activate([width,height,bottom,trailing])
         }
         moreButtonConst()
         
