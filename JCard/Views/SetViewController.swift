@@ -16,19 +16,23 @@ class SetViewController: UITableViewController {
         
         var fontSize: CGFloat {
             if UIScreen.main.bounds.width <= 320 && UIScreen.main.bounds.height <= 560 {
-                return 13
+                return 12
             } else {
-                return 17
+                return 15
             }
         }
         wordManagement.text = NSLocalizedString("WordManagement", comment: "")
-        wordManagement.font = UIFont.systemFont(ofSize: fontSize, weight: .black)
-        wordManagement.textColor = UIColor.darkGray
+        wordManagement.font = UIFont.systemFont(ofSize: fontSize, weight: .regular)
+        wordManagement.textColor = UIColor.black
         wordManagement.tag = 101
         groupManagement.text = NSLocalizedString("GroupManagement", comment: "")
-        groupManagement.font = UIFont.systemFont(ofSize: fontSize, weight: .black)
-        groupManagement.textColor = UIColor.darkGray
+        groupManagement.font = UIFont.systemFont(ofSize: fontSize, weight: .regular)
+        groupManagement.textColor = UIColor.black
         groupManagement.tag = 102
+        backup.text = NSLocalizedString("BackUp", comment: "")
+        backup.font = UIFont.systemFont(ofSize: fontSize)
+        backup.textColor = UIColor.black
+        backup.tag = 103
     }
     
     @IBOutlet private var backButton: UIButton!
@@ -37,6 +41,7 @@ class SetViewController: UITableViewController {
     }
     @IBOutlet private var wordManagement: UILabel!
     @IBOutlet private var groupManagement: UILabel!
+    @IBOutlet private var backup: UILabel!
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)!
@@ -46,6 +51,9 @@ class SetViewController: UITableViewController {
             self.present(vc!, animated: true, completion: nil)
         } else if cell.tag == 102 {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "GroupManagementViewController")
+            self.present(vc!, animated: true, completion: nil)
+        } else if cell.tag == 103 {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "BackUpViewController")
             self.present(vc!, animated: true, completion: nil)
         }
     }

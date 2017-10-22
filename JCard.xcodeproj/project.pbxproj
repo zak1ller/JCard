@@ -14,6 +14,9 @@
 		122714011F987C15009CC2BF /* color.png in Resources */ = {isa = PBXBuildFile; fileRef = 122714001F987C0F009CC2BF /* color.png */; };
 		1229CCDE1F949D25009E9ACF /* set.png in Resources */ = {isa = PBXBuildFile; fileRef = 1229CCDD1F949C87009E9ACF /* set.png */; };
 		1229CCE01F949E14009E9ACF /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1229CCDF1F949E14009E9ACF /* SetViewController.swift */; };
+		122BD76B1F9C726900A5C1E0 /* BackUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BD76A1F9C726900A5C1E0 /* BackUpViewController.swift */; };
+		122BD76D1F9C7CC700A5C1E0 /* BackUpViewBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BD76C1F9C7CC700A5C1E0 /* BackUpViewBrain.swift */; };
+		122BD76F1F9C824000A5C1E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BD76E1F9C824000A5C1E0 /* LoginViewController.swift */; };
 		123256E61F92092A0000599A /* CardEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123256E51F92092A0000599A /* CardEditViewController.swift */; };
 		123384641F95D39700BC9FBD /* CardManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123384631F95D39700BC9FBD /* CardManagementViewController.swift */; };
 		123384661F95D59C00BC9FBD /* CardManagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123384651F95D59C00BC9FBD /* CardManagementCell.swift */; };
@@ -49,6 +52,9 @@
 		122714001F987C0F009CC2BF /* color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color.png; sourceTree = "<group>"; };
 		1229CCDD1F949C87009E9ACF /* set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set.png; sourceTree = "<group>"; };
 		1229CCDF1F949E14009E9ACF /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
+		122BD76A1F9C726900A5C1E0 /* BackUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpViewController.swift; sourceTree = "<group>"; };
+		122BD76C1F9C7CC700A5C1E0 /* BackUpViewBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpViewBrain.swift; sourceTree = "<group>"; };
+		122BD76E1F9C824000A5C1E0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		123256E51F92092A0000599A /* CardEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditViewController.swift; sourceTree = "<group>"; };
 		123384631F95D39700BC9FBD /* CardManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManagementViewController.swift; sourceTree = "<group>"; };
 		123384651F95D59C00BC9FBD /* CardManagementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManagementCell.swift; sourceTree = "<group>"; };
@@ -103,6 +109,9 @@
 			children = (
 				127E16D11F860BF70096947D /* MainViewController.swift */,
 				1229CCDF1F949E14009E9ACF /* SetViewController.swift */,
+				122BD76E1F9C824000A5C1E0 /* LoginViewController.swift */,
+				122BD76A1F9C726900A5C1E0 /* BackUpViewController.swift */,
+				122BD76C1F9C7CC700A5C1E0 /* BackUpViewBrain.swift */,
 				123559111F8890F600B3E86E /* CardAddViewController.swift */,
 				123256E51F92092A0000599A /* CardEditViewController.swift */,
 				123384631F95D39700BC9FBD /* CardManagementViewController.swift */,
@@ -335,16 +344,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				122BD76F1F9C824000A5C1E0 /* LoginViewController.swift in Sources */,
 				127E16D21F860BF70096947D /* MainViewController.swift in Sources */,
 				1229CCE01F949E14009E9ACF /* SetViewController.swift in Sources */,
 				123384661F95D59C00BC9FBD /* CardManagementCell.swift in Sources */,
 				12AF57C11F99E2050043EAA1 /* GroupEditViewController.swift in Sources */,
 				123256E61F92092A0000599A /* CardEditViewController.swift in Sources */,
+				122BD76D1F9C7CC700A5C1E0 /* BackUpViewBrain.swift in Sources */,
 				123559121F8890F600B3E86E /* CardAddViewController.swift in Sources */,
 				124D8A861F86913C00ECA11C /* GlobalInformation.swift in Sources */,
 				127E16D01F860BF70096947D /* AppDelegate.swift in Sources */,
 				123559161F88A7E500B3E86E /* GroupAddViewController.swift in Sources */,
 				123384641F95D39700BC9FBD /* CardManagementViewController.swift in Sources */,
+				122BD76B1F9C726900A5C1E0 /* BackUpViewController.swift in Sources */,
 				122713FD1F9875FE009CC2BF /* GroupManagementViewController.swift in Sources */,
 				122713FF1F98785D009CC2BF /* GroupManagementCell.swift in Sources */,
 				12AA7E571F868A1B0075C3AE /* CardInformation.swift in Sources */,

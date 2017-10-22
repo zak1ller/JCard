@@ -11,6 +11,7 @@
 "DeleteAllGroup" = "すべてのグループを削除";
 "DeleteThisGroup" = "このグループを削除する";
 "AllWord" = "すべての言葉";
+"BackUp" = "バックアップ";
 "Back" = "戻る";
 "Yes" = "はい";
 "No" = "いいえ";
@@ -64,3 +65,10 @@
 "DeleteAllInGroup" = "グループ内のすべてのカードを削除";
 "ThereIsNoCardWillDelete" = "削除されるカードはありません。";
 "AreYouDeleteAllCardsInTheGroup" = "グループ内のすべてのカードを削除してもよろしいですか？";
+"UploadMyCards" = "アップロード";
+"DownloadMyCards" = "ダウンロード";
+"ThereAreNoCardsDownload" = "アップロードするカードはありません。";
+"KeepUploding" = "カードをアップロードすると、既存のにアップロードされたカードは、削除され、アップロードするカードに上書きされます。続行しますか？";
+"NetworkFailed" = "ネットワーク接続に失敗しました。";
+"NeedUsername" = "カードバックアップのためのログインが必要です。";
+"SignIn" = "ログイン";

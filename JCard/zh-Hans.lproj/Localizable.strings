@@ -11,6 +11,7 @@
 "DeleteAllGroup" = "删除所有组";
 "DeleteThisGroup" = "删除此组";
 "AllWord" = "所有的话";
+"BackUp" = "备份";
 "Back" = "回去";
 "Yes" = "是";
 "No" = "没有";
@@ -64,3 +65,10 @@
 "DeleteAllInGroup" = "删除组中的所有卡";
 "ThereIsNoCardWillDelete" = "没有卡会删除。";
 "AreYouDeleteAllCardsInTheGroup" = "你确定要删除组中的所有卡吗？";
+"UploadMyCards" = "上传";
+"DownloadMyCards" = "下载";
+"ThereAreNoCardsDownload" = "没有卡会上传。";
+"KeepUploding" = "当您上传卡时，任何现有上传的卡片将被删除，并覆盖您正在上传的卡片。 你想继续吗？";
+"NetworkFailed" = "网络连接失败。";
+"NeedUsername" = "您需要登录才能备份您的卡。";
+"SignIn" = "注册";

@@ -11,6 +11,7 @@
 "DeleteAllGroup" = "Delete All Group";
 "DeleteThisGroup" = "Delete This Group";
 "AllWord" = "All Word";
+"BackUp" = "Back up";
 "Back" = "Back";
 "Yes" = "Yes";
 "No" = "No";
@@ -64,3 +65,10 @@
 "DeleteAllInGroup" = "Delete all cards in the group";
 "ThereIsNoCardWillDelete" = "There are no cards will delete.";
 "AreYouDeleteAllCardsInTheGroup" = "Are you sure you want to delete all the cards in the group?";
+"UploadMyCards" = "Upload";
+"DownloadMyCards" = "Download";
+"ThereAreNoCardsUpload" = "There are no cards will upload.";
+"KeepUploding" = "When you upload a card, any existing uploaded card will be deleted and overwritten with the card you are uploading. Do you want to continue?";
+"NetworkFailed" = "Network connection failed.";
+"NeedUsername" = "You need a login to back up your card.";
+"SignIn" = "Sign in";

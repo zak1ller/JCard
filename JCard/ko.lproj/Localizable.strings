@@ -11,6 +11,7 @@
 "DeleteCard" = "이 카드 삭제";
 "DeleteAll" = "모든 카드 삭제";
 "AllWord" = "모든 단어";
+"BackUp" = "백업";
 "Back" = "뒤로가기";
 "Yes" = "예";
 "No" = "아니오";
@@ -64,3 +65,10 @@
 "DeleteAllInGroup" = "그룹 내 모든 카드 삭제";
 "ThereIsNoCardWillDelete" = "삭제할 카드가 없습니다.";
 "AreYouDeleteAllCardsInTheGroup" = "그룹 내의 모든 카드를 삭제하시겠습니까?";
+"UploadMyCards" = "업로드";
+"DownloadMyCards" = "다운로드";
+"ThereAreNoCardsDownload" = "업로드할 카드가 없습니다.";
+"KeepUploding" = "카드를 업로드하면 기존에 업로드 된 카드는 삭제되고 업로드할 카드로 덮어씌우기 됩니다. 계속하시겠습니까?";
+"NetworkFailed" = "네트워크 연결에 실패했습니다.";
+"NeedUsername" = "카드 백업을 위한 로그인이 필요합니다.";
+"SignIn" = "로그인";
