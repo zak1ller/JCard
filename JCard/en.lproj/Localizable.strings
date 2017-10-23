@@ -72,3 +72,12 @@
 "NetworkFailed" = "Network connection failed.";
 "NeedUsername" = "You need a login to back up your card.";
 "SignIn" = "Sign in";
+"SignUp" = "Sign up";
+"FindPassword" = "Forgot your password";
+"EnterID" = "Please enter your ID here.";
+"EnterPW" = "Please enter your Password here.";
+"MoreCheckPassword" = "Please enter one more time.";
+"MinID" = "The ID must be at least four characters long.";
+"MaxID" = "Please enter only up to 30 characters.";
+"MaxPW" = "Please enter no more than 30 characters.";
+"DoNotMatchPW" = "The two passwords do not match.";

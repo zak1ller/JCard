@@ -72,3 +72,12 @@
 "NetworkFailed" = "网络连接失败。";
 "NeedUsername" = "您需要登录才能备份您的卡。";
 "SignIn" = "注册";
+"SignUp" = "报名";
+"FindPassword" = "查找密码";
+"EnterID" = "请在此输入您的ID。";
+"EnterPW" = "请在此输入您的密码。";
+"MoreCheckPassword" = "请再次输入一次。";
+"MinID" = "ID必须至少有四个字符长。";
+"MaxID" = "请输入最多30个字符。";
+"MaxPW" = "请输入不超过30个字符。";
+"DoNotMatchPW" = "两个密码不匹配。";

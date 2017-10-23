@@ -26,6 +26,7 @@
 		124D8A861F86913C00ECA11C /* GlobalInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124D8A851F86913C00ECA11C /* GlobalInformation.swift */; };
 		124D8A881F86941600ECA11C /* Minsu Librarys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124D8A871F86941600ECA11C /* Minsu Librarys.swift */; };
 		124EDC341F8769AF00B81A8E /* SokDesigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124EDC331F8769AF00B81A8E /* SokDesigner.swift */; };
+		125416661F9DCDE7006E67E7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125416651F9DCDE7006E67E7 /* SignUpViewController.swift */; };
 		127E16D01F860BF70096947D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E16CF1F860BF70096947D /* AppDelegate.swift */; };
 		127E16D21F860BF70096947D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E16D11F860BF70096947D /* MainViewController.swift */; };
 		127E16D51F860BF70096947D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127E16D31F860BF70096947D /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		124D8A851F86913C00ECA11C /* GlobalInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalInformation.swift; sourceTree = "<group>"; };
 		124D8A871F86941600ECA11C /* Minsu Librarys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Minsu Librarys.swift"; sourceTree = "<group>"; };
 		124EDC331F8769AF00B81A8E /* SokDesigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SokDesigner.swift; sourceTree = "<group>"; };
+		125416651F9DCDE7006E67E7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		127E16CC1F860BF70096947D /* JCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127E16CF1F860BF70096947D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		127E16D11F860BF70096947D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				127E16D11F860BF70096947D /* MainViewController.swift */,
 				1229CCDF1F949E14009E9ACF /* SetViewController.swift */,
 				122BD76E1F9C824000A5C1E0 /* LoginViewController.swift */,
+				125416651F9DCDE7006E67E7 /* SignUpViewController.swift */,
 				122BD76A1F9C726900A5C1E0 /* BackUpViewController.swift */,
 				122BD76C1F9C7CC700A5C1E0 /* BackUpViewBrain.swift */,
 				123559111F8890F600B3E86E /* CardAddViewController.swift */,
@@ -351,6 +354,7 @@
 				12AF57C11F99E2050043EAA1 /* GroupEditViewController.swift in Sources */,
 				123256E61F92092A0000599A /* CardEditViewController.swift in Sources */,
 				122BD76D1F9C7CC700A5C1E0 /* BackUpViewBrain.swift in Sources */,
+				125416661F9DCDE7006E67E7 /* SignUpViewController.swift in Sources */,
 				123559121F8890F600B3E86E /* CardAddViewController.swift in Sources */,
 				124D8A861F86913C00ECA11C /* GlobalInformation.swift in Sources */,
 				127E16D01F860BF70096947D /* AppDelegate.swift in Sources */,

@@ -870,11 +870,6 @@
                                     <action selector="pressBackButtonWithSender:" destination="5Yp-Xo-1E7" eventType="touchUpInside" id="4Qy-Re-zSI"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGr-5f-A7A">
-                                <rect key="frame" x="67" y="102" width="240" height="199"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EXJ-F9-o4w">
                                 <rect key="frame" x="139" y="122" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -889,20 +884,116 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2J-hm-qUq">
+                                <rect key="frame" x="164" y="339" width="47" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign in"/>
+                                <connections>
+                                    <action selector="pressLoginButtonWithSender:" destination="5Yp-Xo-1E7" eventType="touchUpInside" id="OZS-8R-RSV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Do-gL-Dqv">
+                                <rect key="frame" x="165" y="377" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <action selector="pressSignUpWithSender:" destination="5Yp-Xo-1E7" eventType="touchUpInside" id="I4J-8j-bGQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4U-m3-ij7">
+                                <rect key="frame" x="137" y="426" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Find Password"/>
+                                <connections>
+                                    <action selector="pressFindPasswordWithSender:" destination="5Yp-Xo-1E7" eventType="touchUpInside" id="xwp-Sb-GIL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="KWk-kf-6R5"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Buo-Zq-JcN" id="xdv-jc-QNr"/>
-                        <outlet property="fieldBackground" destination="DGr-5f-A7A" id="lGY-BR-wV6"/>
+                        <outlet property="findPassword" destination="l4U-m3-ij7" id="JQm-H5-Daq"/>
                         <outlet property="idField" destination="EXJ-F9-o4w" id="ax4-zS-yZO"/>
+                        <outlet property="loginButton" destination="M2J-hm-qUq" id="cmW-qf-5UL"/>
                         <outlet property="pwField" destination="v6v-fB-OjN" id="jjD-Fi-nRD"/>
+                        <outlet property="signUpButton" destination="7Do-gL-Dqv" id="o6L-dT-zyJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whV-yQ-Ajd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6037.6000000000004" y="140.77961019490255"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="MGs-HR-nEu">
+            <objects>
+                <viewController storyboardIdentifier="SignUpViewController" id="3dP-Xz-kxt" customClass="SignUpViewController" customModule="JCard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="inZ-kt-2Ny">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2G-Au-0IB">
+                                <rect key="frame" x="22" y="20" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="pressBackButtonWithSender:" destination="3dP-Xz-kxt" eventType="touchUpInside" id="chf-Ig-mpy"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zhb-rw-XSm">
+                                <rect key="frame" x="139" y="55" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="fieldBeginWithSender:" destination="3dP-Xz-kxt" eventType="editingChanged" id="M8d-Jt-jLa"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5eO-hd-896">
+                                <rect key="frame" x="139" y="104" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="fieldBeginWithSender:" destination="3dP-Xz-kxt" eventType="editingChanged" id="70g-U8-wC8"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ET-RB-PTv">
+                                <rect key="frame" x="139" y="156" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="fieldBeginWithSender:" destination="3dP-Xz-kxt" eventType="editingChanged" id="sxk-N9-CKc"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgI-my-g5G">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="pressSaveButtonWithSender:" destination="3dP-Xz-kxt" eventType="touchUpInside" id="lm9-P3-Uew"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="qz7-ug-AX8"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="Q2G-Au-0IB" id="31z-uZ-BxT"/>
+                        <outlet property="passwordField" destination="5eO-hd-896" id="ftj-Tw-4Fg"/>
+                        <outlet property="passwordField2" destination="7ET-RB-PTv" id="Kyf-nU-5dL"/>
+                        <outlet property="saveButton" destination="xgI-my-g5G" id="Oh7-Kf-XH1"/>
+                        <outlet property="usernameField" destination="zhb-rw-XSm" id="C60-8c-FSy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F5N-Xj-Y0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6682" y="140"/>
         </scene>
     </scenes>
 </document>
