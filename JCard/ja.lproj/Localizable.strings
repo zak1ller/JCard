@@ -81,3 +81,10 @@
 "MaxID" = "ユーザ名は、30文字まで入力してください。";
 "MaxPW" = "パスワードは、30文字まで入力してください。";
 "DoNotMatchPW" = "二パスワードが一致しません。";
+"DoNotMatchIDPW" = "一致するアカウントはありません。";
+"IsAlreadyAccount" = "このアカウントは既に使用されています。";
+"FailedCreatingAccount" = "アカウントの作成に失敗しました。";
+"SuccessCreatingAccount" = "登録された。";
+"Username" = "ユーザ名";
+"Password" = "パスワード";
+"SignedIn" = "ログインしました。";

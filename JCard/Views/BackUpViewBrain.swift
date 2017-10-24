@@ -37,5 +37,64 @@ class BackUpViewBrain {
         else { handler(false) }
     }
     
+    internal func CheckAlreadyAccount(username: String, complete: @escaping (_ result: String) -> ()) {
+        let url = NSURL(string: "http://suhz23.cafe24.com/JCard/CheckAlreadyAccount.php?username=\(username)")!
+        let request = URLRequest(url: url as URL)
+        let task = URLSession.shared.dataTask(with: request, completionHandler: {
+            data, response, error in
+            if error != nil {
+                complete("false")
+                return
+            }
+            do {
+                let jsonData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                let resultData = jsonData as! NSDictionary
+                complete(resultData["result"] as! String)
+            } catch {
+                complete("false")
+            }
+        })
+        task.resume()
+    }
     
+    internal func CreateAccount(username: String, pw: String, hint: String = "0", complete: @escaping (_ result: String) -> ()) {
+        let url = NSURL(string: "http://suhz23.cafe24.com/JCard/CreateAccount.php?username=\(username)&password=\(pw)&hint=\(hint)")!
+        let request = URLRequest(url: url as URL)
+        let task = URLSession.shared.dataTask(with: request, completionHandler: {
+            data, response, error in
+            if error != nil {
+                complete("false")
+                return
+            }
+            do {
+                let jsonData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                let resultData = jsonData as! NSDictionary
+                complete(resultData["result"] as! String)
+            } catch {
+                complete("false")
+            }
+        })
+        task.resume()
+    }
+    
+    internal func login(username: String, password: String, complete: @escaping (_ result: String) -> ()) {
+        let url = NSURL(string: "http://suhz23.cafe24.com/JCard/Login.php?username=\(username)&password=\(password)")!
+        let request = URLRequest(url: url as URL)
+        let task = URLSession.shared.dataTask(with: request, completionHandler: {
+            data, response, error in
+            if error != nil {
+                complete("false")
+                return
+            }
+            do {
+                let jsonData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                let resultData = jsonData as! NSDictionary
+                complete(resultData["result"] as! String)
+            } catch {
+                complete("false")
+            }
+        })
+        task.resume()
+    }
+
 }

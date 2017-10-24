@@ -40,7 +40,7 @@ class BackUpViewController: UIViewController {
                         self.present(alert, animated: true, completion: nil)
                     } else {
                         if let username = UserDefaults.standard.string(forKey: "username") {
-                            print(username)
+                            // Here
                         } else {
                             let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("NeedUsername", comment: ""), preferredStyle: .alert)
                             alert.view.tintColor = UIColor.black

@@ -49,6 +49,9 @@ class MainViewController: UIViewController {
         cardNumbers.shuffle()
     }
     override func viewDidLoad() {
+        //UserDefaults.standard.removeObject(forKey: "username")
+        //UserDefaults.standard.removeObject(forKey: "password")
+        
         super.viewDidLoad()
         
         level1.tag = 1

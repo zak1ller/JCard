@@ -45,6 +45,8 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet private weak var saveButton: UIButton!
     @IBAction private func pressSaveButton(sender: UIButton) {
+        let usname = usernameField.text!
+        let pwd = passwordField2.text!
         if usernameField.text!.lengthOfBytes(using: .utf8) > 30 {
             let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("MaxID", comment: ""), preferredStyle: .alert)
             self.present(alert, animated: true, completion: {
@@ -77,7 +79,43 @@ class SignUpViewController: UIViewController {
                         self.dismiss(animated: true, completion: nil)
                     })
                 } else {
-                    print(1)
+                    BackUpViewBrain().CheckAlreadyAccount(username: usname, complete: {
+                        res in
+                        if res == "IsAlready" {
+                            DispatchQueue.main.async(execute: {
+                                let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("IsAlreadyAccount", comment: ""), preferredStyle: .alert)
+                                alert.view.tintColor = UIColor.black
+                                alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .cancel, handler: {
+                                    (_) in
+                                    self.usernameField.becomeFirstResponder()
+                                }))
+                                self.present(alert, animated: true, completion: nil)
+                            })
+                        } else {
+                                BackUpViewBrain().CreateAccount(username: usname, pw: pwd, complete: {
+                                    res in
+                                    DispatchQueue.main.async(execute: {
+                                        if res == "Failed Creating" {
+                                            let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("FailedCreatingAccount", comment: ""), preferredStyle: .alert)
+                                            alert.view.tintColor = UIColor.black
+                                            alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .cancel, handler: nil))
+                                            self.present(alert, animated: true, completion: nil)
+                                        } else if res == "Success Creating" {
+                                            let alert = UIAlertController(title: NSLocalizedString("Message", comment: ""), message: NSLocalizedString("SuccessCreatingAccount", comment: ""), preferredStyle: .alert)
+                                            alert.view.tintColor = UIColor.black
+                                            alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .cancel, handler: {
+                                                (_) in
+                                                self.dismiss(animated: true, completion: nil)
+                                            }))
+                                            self.present(alert, animated: true, completion: {
+                                                UserDefaults.standard.set(usname, forKey: "username")
+                                                UserDefaults.standard.set(pwd, forKey: "password")
+                                            })
+                                        }
+                                    })
+                            })
+                        }
+                    })
                 }
             })
         }
@@ -112,6 +150,7 @@ class SignUpViewController: UIViewController {
             self.usernameField.placeholder = NSLocalizedString("EnterID", comment: "")
             self.usernameField.textAlignment = .center
             self.usernameField.borderStyle = .none
+            self.usernameField.keyboardType = .asciiCapable
             self.usernameField.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
             self.usernameField.font = UIFont.systemFont(ofSize: fieldFontSize)
             self.usernameField.tintColor = UIColor.black
@@ -131,6 +170,7 @@ class SignUpViewController: UIViewController {
             self.passwordField.placeholder = NSLocalizedString("EnterPW", comment: "")
             self.passwordField.textAlignment = .center
             self.passwordField.borderStyle = .none
+            self.passwordField.keyboardType = .numberPad
             self.passwordField.tintColor = UIColor.black
             self.passwordField.isSecureTextEntry = true
             self.passwordField.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
@@ -152,6 +192,7 @@ class SignUpViewController: UIViewController {
             self.passwordField2.textAlignment = .center
             self.passwordField2.borderStyle = .none
             self.passwordField2.tintColor = UIColor.black
+            self.passwordField2.keyboardType = .numberPad
             self.passwordField2.isSecureTextEntry = true
             self.passwordField2.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
             self.passwordField2.font = UIFont.systemFont(ofSize: fieldFontSize)

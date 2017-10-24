@@ -900,21 +900,12 @@
                                     <action selector="pressSignUpWithSender:" destination="5Yp-Xo-1E7" eventType="touchUpInside" id="I4J-8j-bGQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4U-m3-ij7">
-                                <rect key="frame" x="137" y="426" width="100" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Find Password"/>
-                                <connections>
-                                    <action selector="pressFindPasswordWithSender:" destination="5Yp-Xo-1E7" eventType="touchUpInside" id="xwp-Sb-GIL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="KWk-kf-6R5"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Buo-Zq-JcN" id="xdv-jc-QNr"/>
-                        <outlet property="findPassword" destination="l4U-m3-ij7" id="JQm-H5-Daq"/>
                         <outlet property="idField" destination="EXJ-F9-o4w" id="ax4-zS-yZO"/>
                         <outlet property="loginButton" destination="M2J-hm-qUq" id="cmW-qf-5UL"/>
                         <outlet property="pwField" destination="v6v-fB-OjN" id="jjD-Fi-nRD"/>

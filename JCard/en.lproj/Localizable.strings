@@ -81,3 +81,10 @@
 "MaxID" = "Please enter only up to 30 characters.";
 "MaxPW" = "Please enter no more than 30 characters.";
 "DoNotMatchPW" = "The two passwords do not match.";
+"DoNotMatchIDPW" = "There is no matching account.";
+"IsAlreadyAccount" = "This account is using already.";
+"FailedCreatingAccount" = "Failed creating account.";
+"SuccessCreatingAccount" = "You are subscribed.";
+"Username" = "Username";
+"Password" = "Password";
+"SignedIn" = "Signed in.";

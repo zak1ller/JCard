@@ -81,3 +81,10 @@
 "MaxID" = "请输入最多30个字符。";
 "MaxPW" = "请输入不超过30个字符。";
 "DoNotMatchPW" = "两个密码不匹配。";
+"DoNotMatchIDPW" = "没有匹配的帐户。";
+"IsAlreadyAccount" = "这个帐号已经使用了。";
+"FailedCreatingAccount" = "创建帐户失败";
+"SuccessCreatingAccount" = "你订阅了";
+"Username" = "用户名";
+"Password" = "密码";
+"SignedIn" = "您已登录";

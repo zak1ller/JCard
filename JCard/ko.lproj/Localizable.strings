@@ -81,3 +81,10 @@
 "MaxID" = "아이디는 30글자 까지만 입력해주세요.";
 "MaxPW" = "비밀번호는 30글자 까지만 입력해주세요.";
 "DoNotMatchPW" = "두 비밀번호가 일치하지 않습니다.";
+"DoNotMatchIDPW" = "일치하는 계정이 없습니다.";
+"IsAlreadyAccount" = "이 계정은 이미 사용중입니다.";
+"FailedCreatingAccount" = "계정을 생성하지 못 했습니다.";
+"SuccessCreatingAccount" = "가입되었습니다.";
+"Username" = "아이디";
+"Password" = "비밀번호";
+"SignedIn" = "로그인 되었습니다.";
